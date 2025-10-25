@@ -2,7 +2,6 @@ import 'package:explora/Screen/food_screen.dart';
 import 'package:explora/Screen/home_screen.dart';
 import 'package:explora/Screen/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
