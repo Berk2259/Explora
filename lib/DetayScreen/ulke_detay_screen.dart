@@ -1,5 +1,5 @@
 import 'package:explora/Container/sehir_container.dart';
-import 'package:explora/Data/ulke_data.dart';
+import 'package:explora/Data/ulke_sehirler_data.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -10,7 +10,7 @@ class UlkeDetayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> cities = UlkeData.ulkeler[ulkeAdi]!;
+    List<String> cities = UlkeSehirlerData.ulkeler[ulkeAdi]!;
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
