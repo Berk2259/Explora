@@ -1,5 +1,5 @@
 //Her ülkenin container dosyası aynı şekilde oluşturulacak. Sadece içeriği değişecek.
-import 'package:explora/DetayScreen/detay_screen.dart';
+import 'package:explora/DetayScreen/ulke_detay_screen.dart';
 import 'package:flutter/material.dart';
 
 class UlkeContainer extends StatelessWidget {
@@ -23,7 +23,7 @@ class UlkeContainer extends StatelessWidget {
         onDoubleTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DetayScreen()),
+            MaterialPageRoute(builder: (context) => UlkeDetayScreen()),
           );
         },
         child: Container(
@@ -59,7 +59,7 @@ class UlkeContainer extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DetayScreen()),
+                        MaterialPageRoute(builder: (context) => UlkeDetayScreen()),
                       );
                     },
                     icon: const Icon(
