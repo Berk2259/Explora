@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FoodScreen extends StatelessWidget {
-  const FoodScreen({super.key});
+class PartiScreen extends StatelessWidget {
+  const PartiScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

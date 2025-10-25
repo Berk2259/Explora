@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:explora/Container/container.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class GeziScreen extends StatelessWidget {
+  const GeziScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Column(
           children: [

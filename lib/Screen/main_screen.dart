@@ -1,7 +1,6 @@
-import 'package:explora/Screen/food_screen.dart';
-import 'package:explora/Screen/home_screen.dart';
-import 'package:explora/Screen/profile_screen.dart';
+import 'package:explora/Screen/screen.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,7 +12,13 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [HomeScreen(), FoodScreen(), ProfileScreen()];
+  final List<Widget> _pages = [
+    GeziScreen(),
+    DogaScreen(),
+    YemekScreen(),
+    MagazaScreen(),
+    PartiScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,18 +45,30 @@ class _MainScreenState extends State<MainScreen> {
               });
             },
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Food'),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
+                icon: Icon(Icons.account_balance),
+                label: 'Gezi',
+              ),
+              BottomNavigationBarItem(icon: Icon(Icons.park), label: 'Doğa'),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.fastfood),
+                label: 'Yemek ',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(FontAwesomeIcons.bagShopping),
+                label: 'Mağaza',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.celebration),
+                label: 'Parti',
               ),
             ],
             backgroundColor: Colors.transparent,
             elevation: 0,
-            selectedItemColor: Color(0XFF2575FC),
-            unselectedItemColor: Colors.grey,
+            selectedItemColor: Colors.blue.shade900,
+            unselectedItemColor: Colors.black,
             type: BottomNavigationBarType.fixed,
+
           ),
         ),
       ),
