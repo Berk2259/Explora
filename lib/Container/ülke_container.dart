@@ -23,7 +23,7 @@ class UlkeContainer extends StatelessWidget {
         onDoubleTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => UlkeDetayScreen()),
+            MaterialPageRoute(builder: (context) => UlkeDetayScreen(ulkeAdi: ulkeAdi,)),
           );
         },
         child: Container(
@@ -59,7 +59,7 @@ class UlkeContainer extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => UlkeDetayScreen()),
+                        MaterialPageRoute(builder: (context) => UlkeDetayScreen(ulkeAdi: ulkeAdi,)),
                       );
                     },
                     icon: const Icon(
