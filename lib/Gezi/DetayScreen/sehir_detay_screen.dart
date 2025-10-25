@@ -1,16 +1,17 @@
-import 'package:explora/Container/sehir_container.dart';
-import 'package:explora/Data/ulke_sehirler_data.dart';
+import 'package:explora/Gezi/Container/container.dart';
+import 'package:explora/Gezi/Data/mekan_data.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class UlkeDetayScreen extends StatelessWidget {
-    final String ulkeAdi;
+//Mekan kısımları yani şehirlerin detay kısımları burada bulunur
+class SehirDetayScreen extends StatelessWidget {
+  final String sehirAdi;
 
-  const UlkeDetayScreen({super.key,required this.ulkeAdi});
+  const SehirDetayScreen({super.key, required this.sehirAdi});
 
   @override
   Widget build(BuildContext context) {
-    List<String> cities = UlkeSehirlerData.ulkeler[ulkeAdi]!;
+    List<String> mekanlar = MekanData.mekanlar[sehirAdi]!;
+
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
@@ -26,12 +27,9 @@ class UlkeDetayScreen extends StatelessWidget {
             color: Colors.transparent,
             child: SingleChildScrollView(
               child: Column(
-                children: [
-                  // Şehirleri tek tek SehirContainer ile göster
-                  ...cities.map((sehir) => SehirContainer(sehirAdi: sehir)).toList(),
-                  
-                  SizedBox(height: 32),
-                ],
+                children: mekanlar
+                    .map((mekan) => MekanContainer(mekanAdi: mekan))
+                    .toList(),
               ),
             ),
           ),

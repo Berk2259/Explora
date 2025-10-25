@@ -1,5 +1,5 @@
 //Her ülkenin container dosyası aynı şekilde oluşturulacak. Sadece içeriği değişecek.
-import 'package:explora/DetayScreen/ulke_detay_screen.dart';
+import 'package:explora/Gezi/DetayScreen/detay_screen.dart';
 import 'package:flutter/material.dart';
 
 class UlkeContainer extends StatelessWidget {

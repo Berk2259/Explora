@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:explora/Container/container.dart';
+import 'package:explora/Gezi/Container/container.dart';
 
 class GeziScreen extends StatelessWidget {
   const GeziScreen({super.key});

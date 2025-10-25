@@ -1,4 +1,4 @@
-import 'package:explora/DetayScreen/sehir_detay_screen.dart';
+import 'package:explora/Gezi/DetayScreen/sehir_detay_screen.dart';
 import 'package:flutter/material.dart';
 
 //Her şehir için kullanılacak konteyner bileşeni
@@ -12,7 +12,7 @@ class SehirContainer extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       child: GestureDetector(
         onDoubleTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreen(sehirAdi: sehirAdi,)));
         },
         child: Container(
           width: double.infinity,
