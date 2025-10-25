@@ -11,6 +11,7 @@ class SehirDetayScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> mekanlar = MekanData.mekanlar[sehirAdi]!;
+    
 
     return Scaffold(
       backgroundColor: Colors.blue,
@@ -28,7 +29,7 @@ class SehirDetayScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: mekanlar
-                    .map((mekan) => MekanContainer(mekanAdi: mekan))
+                    .map((mekan) => MekanContainer(mekanAdi: mekan, ))
                     .toList(),
               ),
             ),

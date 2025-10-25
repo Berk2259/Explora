@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 //Her mekan için kullanılacak konteyner bileşeni
 class MekanContainer extends StatelessWidget {
   final String mekanAdi;
-
   const MekanContainer({
     super.key,
     required this.mekanAdi,
  
   });
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +23,7 @@ class MekanContainer extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
-              child: Icon(Icons.location_pin, size: 50,),
+              child: CircleAvatar(backgroundColor: Colors.transparent,child: Image.asset('assets/images/google-maps.png')),
             ),
             SizedBox(width: 20),
             Text(

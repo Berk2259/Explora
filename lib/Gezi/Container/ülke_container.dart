@@ -1,7 +1,8 @@
-//Her ülkenin container dosyası aynı şekilde oluşturulacak. Sadece içeriği değişecek.
+
 import 'package:explora/Gezi/DetayScreen/detay_screen.dart';
 import 'package:flutter/material.dart';
 
+//Her ülkenin container dosyası aynı şekilde oluşturulacak. Sadece içeriği değişecek.
 class UlkeContainer extends StatelessWidget {
   final String ulkeAdi;
   final String iconUlke;

@@ -2,7 +2,7 @@ import 'package:explora/Gezi/Container/container.dart';
 import 'package:explora/Gezi/Data/data.dart';
 import 'package:flutter/material.dart';
 
-
+//Her ülkenin detay kısımları burada bulunur yani şehirlerin listelendiği ekran
 class UlkeDetayScreen extends StatelessWidget {
     final String ulkeAdi;
 
