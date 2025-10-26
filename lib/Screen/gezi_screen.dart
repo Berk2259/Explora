@@ -9,12 +9,28 @@ class GeziScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
-        child: Column(
-          children: [
-            UlkeContainer(iconUlke: 'assets/images/turkey.png',ulkeAdi: 'Türkiye',ButtonColor1: Colors.red,ButtonColor2: Colors.white,),
-            UlkeContainer(iconUlke: 'assets/images/spain.png', ulkeAdi: 'İspanya', ButtonColor1: Colors.yellow,ButtonColor2: Colors.red,),
-            UlkeContainer(iconUlke: 'assets/images/france.png', ulkeAdi: 'Fransa', ButtonColor1: Colors.blue,ButtonColor2: Colors.red,),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              UlkeContainer(iconUlke: 'assets/images/turkey.png',ulkeAdi: 'Türkiye',),
+              UlkeContainer(iconUlke: 'assets/images/spain.png', ulkeAdi: 'İspanya', ),
+              UlkeContainer(iconUlke: 'assets/images/france.png', ulkeAdi: 'Fransa', ),
+              UlkeContainer(iconUlke: 'assets/images/ıtaly.png', ulkeAdi: 'İtalya', ),
+              UlkeContainer(iconUlke: 'assets/images/germany.png', ulkeAdi: 'Almanya', ),
+              UlkeContainer(iconUlke: 'assets/images/poland.png', ulkeAdi: 'Polonya', ),
+              UlkeContainer(iconUlke: 'assets/images/netherlands.png', ulkeAdi: 'Hollanda', ),
+              UlkeContainer(iconUlke: 'assets/images/england.png', ulkeAdi: 'İngiltere', ),
+              UlkeContainer(iconUlke: 'assets/images/czech.png', ulkeAdi: 'Çekya', ),
+              UlkeContainer(iconUlke: 'assets/images/sweeden.png', ulkeAdi: 'İsveç', ),
+              UlkeContainer(iconUlke: 'assets/images/switzerland.png', ulkeAdi: 'İsviçre', ),
+              UlkeContainer(iconUlke: 'assets/images/norway.png', ulkeAdi: 'Norveç', ),
+              UlkeContainer(iconUlke: 'assets/images/portugal.png', ulkeAdi: 'Portekiz', ),
+              UlkeContainer(iconUlke: 'assets/images/greece.png', ulkeAdi: 'Yunanistan', ),
+              UlkeContainer(iconUlke: 'assets/images/austria.png', ulkeAdi: 'Avusturya', ),
+              UlkeContainer(iconUlke: 'assets/images/finland.png', ulkeAdi: 'Finlandiya', ),
+              UlkeContainer(iconUlke: 'assets/images/bulgaria.png', ulkeAdi: 'Bulgaristan', ),
+            ],
+          ),
         ),
       ),
     );

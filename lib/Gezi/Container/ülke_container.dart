@@ -6,14 +6,10 @@ import 'package:flutter/material.dart';
 class UlkeContainer extends StatelessWidget {
   final String ulkeAdi;
   final String iconUlke;
-  final Color ButtonColor1;
-  final Color ButtonColor2;
   const UlkeContainer({
     super.key,
     required this.ulkeAdi,
     required this.iconUlke,
-    required this.ButtonColor1,
-    required this.ButtonColor2,
   });
 
   @override
@@ -50,7 +46,7 @@ class UlkeContainer extends StatelessWidget {
                 child: ShaderMask(
                   shaderCallback: (Rect bounds) {
                     return LinearGradient(
-                      colors: [ButtonColor1, ButtonColor2],
+                      colors: [Colors.blue, Colors.white],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       
