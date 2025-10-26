@@ -1,12 +1,12 @@
 
-import 'package:explora/Gezi/DetayScreen/detay_screen.dart';
+import 'package:explora/Gezi/DetayScreenGezi/detay_screen_gezi.dart';
 import 'package:flutter/material.dart';
 
 //Her ülkenin container dosyası aynı şekilde oluşturulacak. Sadece içeriği değişecek.
-class UlkeContainer extends StatelessWidget {
+class UlkeContainerGezi extends StatelessWidget {
   final String ulkeAdi;
   final String iconUlke;
-  const UlkeContainer({
+  const UlkeContainerGezi({
     super.key,
     required this.ulkeAdi,
     required this.iconUlke,
@@ -20,7 +20,7 @@ class UlkeContainer extends StatelessWidget {
         onDoubleTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => UlkeDetayScreen(ulkeAdi: ulkeAdi,)),
+            MaterialPageRoute(builder: (context) => UlkeDetayScreenGezi(ulkeAdi: ulkeAdi,)),
           );
         },
         child: Container(
@@ -56,7 +56,7 @@ class UlkeContainer extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => UlkeDetayScreen(ulkeAdi: ulkeAdi,)),
+                        MaterialPageRoute(builder: (context) => UlkeDetayScreenGezi(ulkeAdi: ulkeAdi,)),
                       );
                     },
                     icon: const Icon(

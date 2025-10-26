@@ -1,16 +1,16 @@
-import 'package:explora/Gezi/Container/container.dart';
-import 'package:explora/Gezi/Data/data.dart';
+import 'package:explora/Gezi/ContainerGezi/container_gezi.dart';
+import 'package:explora/Gezi/DataGezi/data_gezi.dart';
 import 'package:flutter/material.dart';
 
 //Her ülkenin detay kısımları burada bulunur yani şehirlerin listelendiği ekran
-class UlkeDetayScreen extends StatelessWidget {
+class UlkeDetayScreenGezi extends StatelessWidget {
     final String ulkeAdi;
 
-  const UlkeDetayScreen({super.key,required this.ulkeAdi});
+  const UlkeDetayScreenGezi({super.key,required this.ulkeAdi});
 
   @override
   Widget build(BuildContext context) {
-    List<String> cities = UlkeSehirlerData.ulkeler[ulkeAdi]!;
+    List<String> cities = UlkeSehirlerDataGezi.ulkeler[ulkeAdi]!;
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
@@ -28,7 +28,7 @@ class UlkeDetayScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // Şehirleri tek tek SehirContainer ile göster
-                  ...cities.map((sehir) => SehirContainer(sehirAdi: sehir)).toList(),
+                  ...cities.map((sehir) => SehirContainerGezi(sehirAdi: sehir)).toList(),
                   
                   SizedBox(height: 32),
                 ],

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:explora/Gezi/Data/data.dart';
+import 'package:explora/Gezi/DataGezi/data_gezi.dart';
 
 //Her mekan için kullanılacak konteyner bileşeni
-class MekanContainer extends StatelessWidget {
+class MekanContainerGezi extends StatelessWidget {
   final String mekanAdi;
-  const MekanContainer({super.key, required this.mekanAdi});
+  const MekanContainerGezi({super.key, required this.mekanAdi});
 
   Future<void> _openMaps() async {
-    final String? url = KonumData.konumlar[mekanAdi]?.first;
+    final String? url = KonumDataGezi.konumlar[mekanAdi]?.first;
 
     if (url == null) {
       // Eğer bu mekan için link tanımlı değilse uyarı verelim

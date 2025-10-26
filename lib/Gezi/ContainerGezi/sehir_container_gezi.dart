@@ -1,10 +1,10 @@
-import 'package:explora/Gezi/DetayScreen/sehir_detay_screen.dart';
+import 'package:explora/Gezi/DetayScreenGezi/sehir_detay_screen_gezi.dart';
 import 'package:flutter/material.dart';
 
 //Her şehir için kullanılacak konteyner bileşeni
-class SehirContainer extends StatelessWidget {
+class SehirContainerGezi extends StatelessWidget {
   final String sehirAdi;
-  const SehirContainer({required this.sehirAdi, super.key});
+  const SehirContainerGezi({required this.sehirAdi, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class SehirContainer extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       child: GestureDetector(
         onDoubleTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreen(sehirAdi: sehirAdi,)));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreenGezi(sehirAdi: sehirAdi,)));
         },
         child: Container(
           width: double.infinity,

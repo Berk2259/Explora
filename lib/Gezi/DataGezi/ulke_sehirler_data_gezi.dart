@@ -1,4 +1,4 @@
-class UlkeSehirlerData {
+class UlkeSehirlerDataGezi {
   static final Map<String,List<String>> ulkeler = {"Türkiye": [
     "Adana",
     "Adıyaman",

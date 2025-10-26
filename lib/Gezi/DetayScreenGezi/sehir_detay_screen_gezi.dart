@@ -1,16 +1,16 @@
-import 'package:explora/Gezi/Container/container.dart';
-import 'package:explora/Gezi/Data/mekan_data.dart';
+import 'package:explora/Gezi/ContainerGezi/container_gezi.dart';
+import 'package:explora/Gezi/DataGezi/mekan_data_gezi.dart';
 import 'package:flutter/material.dart';
 
 //Mekan kısımları yani şehirlerin detay kısımları burada bulunur
-class SehirDetayScreen extends StatelessWidget {
+class SehirDetayScreenGezi extends StatelessWidget {
   final String sehirAdi;
 
-  const SehirDetayScreen({super.key, required this.sehirAdi});
+  const SehirDetayScreenGezi({super.key, required this.sehirAdi});
 
   @override
   Widget build(BuildContext context) {
-    List<String> mekanlar = MekanData.mekanlar[sehirAdi]!;
+    List<String> mekanlar = MekanDataGezi.mekanlar[sehirAdi]!;
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
@@ -27,7 +27,7 @@ class SehirDetayScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: mekanlar
-                    .map((mekan) => MekanContainer(mekanAdi: mekan, ))
+                    .map((mekan) => MekanContainerGezi(mekanAdi: mekan, ))
                     .toList(),
               ),
             ),
