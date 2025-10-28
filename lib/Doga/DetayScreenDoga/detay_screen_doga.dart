@@ -1,0 +1,1 @@
+export 'ulke_detay_screen_doga.dart';
