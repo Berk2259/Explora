@@ -1,5 +1,5 @@
-import 'package:explora/Gezi/ContainerGezi/container_gezi.dart';
-import 'package:explora/Gezi/DataGezi/data_gezi.dart';
+import 'package:explora/Doga/ContainerDoga/container_doga.dart';
+import 'package:explora/Ortak/DataOrtak/data_ortak.dart';
 import 'package:flutter/material.dart';
 
 //Her ülkenin detay kısımları burada bulunur yani şehirlerin listelendiği ekran
@@ -9,7 +9,7 @@ class UlkeDetayScreenDoga extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> cities = UlkeSehirlerDataGezi.ulkeler[ulkeAdi]!;
+    List<String> cities = UlkeSehirlerDataOrtak.ulkeler[ulkeAdi]!;
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
@@ -27,7 +27,7 @@ class UlkeDetayScreenDoga extends StatelessWidget {
               child: Column(
                 children: [
                   // Şehirleri tek tek SehirContainer ile göster
-                  ...cities.map((sehir) => SehirContainerGezi(sehirAdi: sehir)).toList(),
+                  ...cities.map((sehir) => SehirContainerDoga(sehirAdi: sehir)).toList(),
                   
                   SizedBox(height: 32),
                 ],

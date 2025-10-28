@@ -1,5 +1,5 @@
 import 'package:explora/Gezi/ContainerGezi/container_gezi.dart';
-import 'package:explora/Gezi/DataGezi/data_gezi.dart';
+import 'package:explora/Ortak/DataOrtak/data_ortak.dart';
 import 'package:flutter/material.dart';
 
 //Her ülkenin detay kısımları burada bulunur yani şehirlerin listelendiği ekran
@@ -9,7 +9,7 @@ class UlkeDetayScreenGezi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> cities = UlkeSehirlerDataGezi.ulkeler[ulkeAdi]!;
+    List<String> cities = UlkeSehirlerDataOrtak.ulkeler[ulkeAdi]!;
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
