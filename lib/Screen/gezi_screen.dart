@@ -80,6 +80,30 @@ class GeziScreen extends StatelessWidget {
                 iconUlke: 'assets/images/bulgaria.png',
                 ulkeAdi: 'Bulgaristan',
               ),
+              UlkeContainerGezi(
+                iconUlke: 'assets/images/slovakia.png',
+                ulkeAdi: 'Slovakya',
+              ),
+              UlkeContainerGezi(
+                iconUlke: 'assets/images/albania.png',
+                ulkeAdi: 'Arnavutluk',
+              ),
+              UlkeContainerGezi(
+                iconUlke: 'assets/images/croatia.png',
+                ulkeAdi: 'Hırvatistan',
+              ),
+              UlkeContainerGezi(
+                iconUlke: 'assets/images/macedonia.png',
+                ulkeAdi: 'Makedonya',
+              ),  
+              UlkeContainerGezi(
+                iconUlke: 'assets/images/hungary.png',
+                ulkeAdi: 'Macaristan',
+              ),  
+              UlkeContainerGezi(
+                iconUlke: 'assets/images/denmark.png',
+                ulkeAdi: 'Danimarka',
+              ),
             ],
           ),
         ),
