@@ -36,37 +36,17 @@ class UlkeContainerGezi extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Image.asset(iconUlke),
               ),
-              Text(
-                ulkeAdi,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: ShaderMask(
-                  shaderCallback: (Rect bounds) {
-                    return LinearGradient(
-                      colors: [Colors.blue, Colors.white],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      
-                    ).createShader(bounds);
-                  },
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => UlkeDetayScreenGezi(ulkeAdi: ulkeAdi,)),
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.arrow_circle_right,
-                      size: 40,
-                      color: Colors.white, // Gradient çalışsın diye beyaz bırak
-                    ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    ulkeAdi,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                ),
-              ),
+                  Text('Şehirlere ulaşmak için çift tıklayın.',style: TextStyle(fontSize: 12),),
+                ],
+              ), 
             ],
           ),
         ),

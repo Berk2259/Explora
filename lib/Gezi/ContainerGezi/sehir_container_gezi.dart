@@ -30,18 +30,16 @@ class SehirContainerGezi extends StatelessWidget {
                   child: Image.asset('assets/images/city.png'),
                 ),
                 SizedBox(width: 20),
-                Text(
-                  sehirAdi,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.arrow_circle_right,
-                    size: 40,
-                    color: Colors.lightBlueAccent,
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      sehirAdi,
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    Text('Gezilecek yerlere ulaşmak için çift tıklayın.',style: TextStyle(fontSize: 12),),
+                  ],
                 ),
               ],
             ),
