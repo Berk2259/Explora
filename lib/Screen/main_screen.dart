@@ -12,6 +12,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
+  final PageController _pageController = PageController();
+
   final List<Widget> _pages = [
     GeziScreen(),
     DogaScreen(),
@@ -19,11 +21,16 @@ class _MainScreenState extends State<MainScreen> {
     MagazaScreen(),
     PartiScreen(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: _pages[_selectedIndex],
+      body: PageView(
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(), // swipe kapalı
+        children: _pages,
+      ),
       bottomNavigationBar: Container(
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -33,15 +40,19 @@ class _MainScreenState extends State<MainScreen> {
         ),
         child: Theme(
           data: Theme.of(context).copyWith(
-            splashColor: Colors.transparent, // ripple rengini şeffaf yap
-            highlightColor:
-                Colors.transparent, // basılıyken oluşan highlight'ı kaldır
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
             currentIndex: _selectedIndex,
             onTap: (index) {
               setState(() {
                 _selectedIndex = index;
+                _pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut, // slide animasyonu
+                );
               });
             },
             items: const [
@@ -68,7 +79,6 @@ class _MainScreenState extends State<MainScreen> {
             selectedItemColor: Colors.blue.shade900,
             unselectedItemColor: Colors.black,
             type: BottomNavigationBarType.fixed,
-
           ),
         ),
       ),
