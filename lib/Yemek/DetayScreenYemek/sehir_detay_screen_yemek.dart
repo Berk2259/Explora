@@ -1,16 +1,16 @@
-import 'package:explora/Doga/ContainerDoga/container_doga.dart';
-import 'package:explora/Doga/DataDoga/mekan_data_doga.dart';
+import 'package:explora/Yemek/ContainerYemek/container_yemek.dart';
+import 'package:explora/Yemek/DataYemek/mekan_data_yemek.dart';
 import 'package:flutter/material.dart';
 
 //Mekan kısımları yani şehirlerin detay kısımları burada bulunur
-class SehirDetayScreenDoga extends StatelessWidget {
+class SehirDetayScreenYemek extends StatelessWidget {
   final String sehirAdi;
 
-  const SehirDetayScreenDoga({super.key, required this.sehirAdi});
+  const SehirDetayScreenYemek({super.key, required this.sehirAdi});
 
   @override
   Widget build(BuildContext context) {
-    List<String> mekanlar = MekanDataDoga.mekanlar[sehirAdi]!;
+    List<String> mekanlar = MekanDataYemek.mekanlar[sehirAdi]!;
     return Scaffold(
       backgroundColor: Colors.blue,
       body: SafeArea(
@@ -27,7 +27,7 @@ class SehirDetayScreenDoga extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: mekanlar
-                    .map((mekan) => MekanContainerDoga(mekanAdi: mekan, ))
+                    .map((mekan) => MekanContainerYemek(mekanAdi: mekan, ))
                     .toList(),
               ),
             ),
