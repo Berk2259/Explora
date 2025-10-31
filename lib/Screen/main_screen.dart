@@ -28,7 +28,13 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.blue,
       body: PageView(
         controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(), // swipe kapalı
+        physics: const ClampingScrollPhysics(), // Android benzeri kaydırma
+        onPageChanged: (index) {
+          setState(() {
+            _selectedIndex =
+                index; // swipe yaptığında bottom bar da güncellensin
+          });
+        },
         children: _pages,
       ),
       bottomNavigationBar: Container(
