@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
+      backgroundColor: Colors.blue,
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(), // swipe kapalı

@@ -1,0 +1,1 @@
+export 'ortak_app_bar.dart';
