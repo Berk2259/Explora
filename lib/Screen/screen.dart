@@ -4,3 +4,4 @@ export 'doga_screen.dart';
 export 'gezi_screen.dart';
 export 'magaza_screen.dart';
 export 'parti_screen.dart';
+export 'uygulama_hakkinda_screen.dart';

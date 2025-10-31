@@ -1,3 +1,4 @@
+import 'package:explora/Screen/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -75,7 +76,7 @@ class OrtakAppBar extends StatelessWidget {
                 'Uygulama Hakkında',
                 style: TextStyle(color: Colors.blue.shade900),
               ),
-              onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => UygulamaHakkindaScreen())),
             ),
             ListTile(
               leading: Icon(Icons.mail, color: Colors.blue.shade900),
@@ -87,7 +88,7 @@ class OrtakAppBar extends StatelessWidget {
                 mailGonder(
                   'example@mail.com',
                   subject: 'Merhaba',
-                  body: 'Bu bir test mailidir.',
+                  body: 'Bir Konuda Fikrim Var',
                 );
               },
             ),
