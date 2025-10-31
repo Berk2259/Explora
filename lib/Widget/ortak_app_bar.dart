@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OrtakAppBar extends StatelessWidget {
   final String title;
@@ -6,6 +7,21 @@ class OrtakAppBar extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   OrtakAppBar({required this.title, required this.body, Key? key})
     : super(key: key);
+
+  void mailGonder(String email, {String subject = '', String body = ''}) async {
+    final Uri emailUri = Uri(
+      scheme: 'mailto',
+      path: email,
+      query:
+          'subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(body)}',
+    );
+
+    if (await canLaunchUrl(emailUri)) {
+      await launchUrl(emailUri);
+    } else {
+      throw 'E-posta gönderilemiyor: $emailUri';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +70,26 @@ class OrtakAppBar extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home,color: Colors.blue.shade900,),
-              title: Text('Uygulama Hakkında',style: TextStyle(color: Colors.blue.shade900,),),
+              leading: Icon(Icons.home, color: Colors.blue.shade900),
+              title: Text(
+                'Uygulama Hakkında',
+                style: TextStyle(color: Colors.blue.shade900),
+              ),
               onTap: () => Navigator.pop(context),
             ),
             ListTile(
-              leading: Icon(Icons.mail,color: Colors.blue.shade900,),
-              title: Text('İletişim',style: TextStyle(color: Colors.blue.shade900,),),
-              onTap: () => Navigator.pop(context),
+              leading: Icon(Icons.mail, color: Colors.blue.shade900),
+              title: Text(
+                'İletişim',
+                style: TextStyle(color: Colors.blue.shade900),
+              ),
+              onTap: () {
+                mailGonder(
+                  'example@mail.com',
+                  subject: 'Merhaba',
+                  body: 'Bu bir test mailidir.',
+                );
+              },
             ),
           ],
         ),
