@@ -22,10 +22,20 @@ class _MainScreenState extends State<MainScreen> {
     PartiScreen(),
   ];
 
+  // Her sayfa için renkler
+  final List<Color> _pageColors = [
+    Color(0xFF667eea),  // Gezi - Mor
+    Color(0xFF66a6ff),  // Doğa - Mavi
+    Color(0xFFfcb69f),  // Yemek - Turuncu
+    Color(0xFF2c3e50),  // Mağaza - Koyu Gri
+    Color(0xFFff6b6b),  // Parti - Kırmızı
+  ];
+
   @override
   Widget build(BuildContext context) {
+    final currentColor = _pageColors[_selectedIndex];
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: currentColor,
       body: PageView(
         controller: _pageController,
         physics: const ClampingScrollPhysics(), // Android benzeri kaydırma
@@ -42,7 +52,13 @@ class _MainScreenState extends State<MainScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(24),
-          boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+          boxShadow: [
+            BoxShadow(
+              color: currentColor.withOpacity(0.3),
+              blurRadius: 15,
+              spreadRadius: 2,
+            ),
+          ],
         ),
         child: Theme(
           data: Theme.of(context).copyWith(
@@ -82,8 +98,8 @@ class _MainScreenState extends State<MainScreen> {
             ],
             backgroundColor: Colors.transparent,
             elevation: 0,
-            selectedItemColor: Colors.blue.shade900,
-            unselectedItemColor: Colors.black,
+            selectedItemColor: currentColor,
+            unselectedItemColor: Colors.black54,
             type: BottomNavigationBarType.fixed,
           ),
         ),

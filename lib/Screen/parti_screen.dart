@@ -9,16 +9,29 @@ class PartiScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrtakAppBar(
       title: "Parti Mekanları",
+      appBarColor: Color(0xFFff6b6b),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
-              ),
-              color: Colors.blue,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
             ),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFFff6b6b),
+                Color(0xFFee5a6f),
+                Color(0xFFffa500),
+                Color(0xFFffd700),
+                Color(0xFFff69b4),
+              ],
+              stops: [0.0, 0.25, 0.5, 0.75, 1.0],
+            ),
+          ),
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               children: [
                 UlkeContainerParti(
@@ -113,6 +126,7 @@ class PartiScreen extends StatelessWidget {
                   iconUlke: 'assets/images/denmark.png',
                   ulkeAdi: 'Danimarka',
                 ),
+                SizedBox(height: 16),
               ],
             ),
           ),

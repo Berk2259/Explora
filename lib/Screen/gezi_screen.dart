@@ -9,6 +9,7 @@ class GeziScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrtakAppBar(
       title: "Gezilecek Mekanlar",
+      appBarColor: Color(0xFF667eea),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -17,8 +18,17 @@ class GeziScreen extends StatelessWidget {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
               ),
-              color: Colors.blue,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFF667eea),
+                  Color(0xFF764ba2),
+                  Color(0xFFf093fb),
+                ],
+              ),
             ),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               children: [
                 UlkeContainerGezi(
@@ -113,6 +123,7 @@ class GeziScreen extends StatelessWidget {
                   iconUlke: 'assets/images/denmark.png',
                   ulkeAdi: 'Danimarka',
                 ),
+                SizedBox(height: 16),
               ],
             ),
           ),

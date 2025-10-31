@@ -15,7 +15,7 @@ class UlkeContainerDoga extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+      padding: const EdgeInsets.only(bottom: 16.0),
       child: GestureDetector(
         onDoubleTap: () {
           Navigator.push(
@@ -25,29 +25,106 @@ class UlkeContainerDoga extends StatelessWidget {
         },
         child: Container(
           width: double.infinity,
-          height: 100,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            color: Colors.white,
-          ),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Image.asset(iconUlke),
+            borderRadius: BorderRadius.circular(24),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.white,
+                Color(0xFFe8f5e9),
+              ],
+            ),
+            border: Border.all(
+              color: Color(0xFF4caf50).withOpacity(0.3),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xFF4caf50).withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: Offset(0, 5),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    ulkeAdi,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  Text('Şehirlere ulaşmak için çift tıklayın.',style: TextStyle(fontSize: 12),),
-                ],
-              ), 
             ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Container(
+                  width: 75,
+                  height: 75,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    border: Border.all(
+                      color: Color(0xFF66a6ff).withOpacity(0.4),
+                      width: 2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFF66a6ff).withOpacity(0.2),
+                        blurRadius: 8,
+                        offset: Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.all(6),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(14),
+                    child: Image.asset(iconUlke, fit: BoxFit.cover),
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.park, size: 20, color: Color(0xFF4caf50)),
+                          SizedBox(width: 6),
+                          Text(
+                            ulkeAdi,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF1b5e20),
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Icon(Icons.eco, size: 14, color: Color(0xFF66a6ff)),
+                          SizedBox(width: 4),
+                          Flexible(
+                            child: Text(
+                              'Doğal güzellikleri keşfetmek için çift tıklayın',
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: Color(0xFF388e3c),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Color(0xFF4caf50).withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(Icons.nature, size: 24, color: Color(0xFF4caf50)),
+                ),
+              ],
+            ),
           ),
         ),
       ),
