@@ -11,80 +11,109 @@ class YemekScreen extends StatelessWidget {
       title: "Yemek Yerleri",
       appBarColor: Color(0xFFfcb69f),
       body: SafeArea(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(25),
-              topRight: Radius.circular(25),
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              ),
+              color:  Color(0xFFfcb69f),
             ),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFFffecd2),
-                Color(0xFFfcb69f),
-                Color(0xFFff9a9e),
-              ],
-            ),
-          ),
-          child: SingleChildScrollView(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Text(
-                    'Ülkeleri Keşfedin',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF5a3d2b),
-                    ),
-                  ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/turkey.png',
+                  ulkeAdi: 'Türkiye',
                 ),
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 12,
-                    childAspectRatio: 0.85,
-                  ),
-                  itemCount: 23,
-                  itemBuilder: (context, index) {
-                    final countries = [
-                      {'icon': 'assets/images/turkey.png', 'name': 'Türkiye'},
-                      {'icon': 'assets/images/spain.png', 'name': 'İspanya'},
-                      {'icon': 'assets/images/france.png', 'name': 'Fransa'},
-                      {'icon': 'assets/images/ıtaly.png', 'name': 'İtalya'},
-                      {'icon': 'assets/images/germany.png', 'name': 'Almanya'},
-                      {'icon': 'assets/images/poland.png', 'name': 'Polonya'},
-                      {'icon': 'assets/images/netherlands.png', 'name': 'Hollanda'},
-                      {'icon': 'assets/images/england.png', 'name': 'İngiltere'},
-                      {'icon': 'assets/images/czech.png', 'name': 'Çekya'},
-                      {'icon': 'assets/images/sweeden.png', 'name': 'İsveç'},
-                      {'icon': 'assets/images/switzerland.png', 'name': 'İsviçre'},
-                      {'icon': 'assets/images/norway.png', 'name': 'Norveç'},
-                      {'icon': 'assets/images/portugal.png', 'name': 'Portekiz'},
-                      {'icon': 'assets/images/greece.png', 'name': 'Yunanistan'},
-                      {'icon': 'assets/images/austria.png', 'name': 'Avusturya'},
-                      {'icon': 'assets/images/finland.png', 'name': 'Finlandiya'},
-                      {'icon': 'assets/images/bulgaria.png', 'name': 'Bulgaristan'},
-                      {'icon': 'assets/images/slovakia.png', 'name': 'Slovakya'},
-                      {'icon': 'assets/images/albania.png', 'name': 'Arnavutluk'},
-                      {'icon': 'assets/images/croatia.png', 'name': 'Hırvatistan'},
-                      {'icon': 'assets/images/macedonia.png', 'name': 'Makedonya'},
-                      {'icon': 'assets/images/hungary.png', 'name': 'Macaristan'},
-                      {'icon': 'assets/images/denmark.png', 'name': 'Danimarka'},
-                    ];
-                    final country = countries[index];
-                    return UlkeContainerYemek(
-                      iconUlke: country['icon']!,
-                      ulkeAdi: country['name']!,
-                    );
-                  },
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/spain.png',
+                  ulkeAdi: 'İspanya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/france.png',
+                  ulkeAdi: 'Fransa',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/ıtaly.png',
+                  ulkeAdi: 'İtalya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/germany.png',
+                  ulkeAdi: 'Almanya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/poland.png',
+                  ulkeAdi: 'Polonya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/netherlands.png',
+                  ulkeAdi: 'Hollanda',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/england.png',
+                  ulkeAdi: 'İngiltere',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/czech.png',
+                  ulkeAdi: 'Çekya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/sweeden.png',
+                  ulkeAdi: 'İsveç',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/switzerland.png',
+                  ulkeAdi: 'İsviçre',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/norway.png',
+                  ulkeAdi: 'Norveç',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/portugal.png',
+                  ulkeAdi: 'Portekiz',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/greece.png',
+                  ulkeAdi: 'Yunanistan',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/austria.png',
+                  ulkeAdi: 'Avusturya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/finland.png',
+                  ulkeAdi: 'Finlandiya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/bulgaria.png',
+                  ulkeAdi: 'Bulgaristan',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/slovakia.png',
+                  ulkeAdi: 'Slovakya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/albania.png',
+                  ulkeAdi: 'Arnavutluk',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/croatia.png',
+                  ulkeAdi: 'Hırvatistan',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/macedonia.png',
+                  ulkeAdi: 'Makedonya',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/hungary.png',
+                  ulkeAdi: 'Macaristan',
+                ),
+                UlkeContainerYemek(
+                  iconUlke: 'assets/images/denmark.png',
+                  ulkeAdi: 'Danimarka',
                 ),
               ],
             ),

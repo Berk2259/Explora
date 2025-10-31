@@ -9,7 +9,7 @@ class DogaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrtakAppBar(
       title: "Doğal Mekanlar",
-      appBarColor: Color(0xFF66a6ff),
+      appBarColor: Color(0xFFa8edea),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -18,17 +18,7 @@ class DogaScreen extends StatelessWidget {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
               ),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFFa8edea),
-                  Color(0xFFfed6e3),
-                  Color(0xFF89f7fe),
-                  Color(0xFF66a6ff),
-                ],
-                stops: [0.0, 0.3, 0.6, 1.0],
-              ),
+              color:  Color(0xFFa8edea),
             ),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
             child: Column(
@@ -125,7 +115,6 @@ class DogaScreen extends StatelessWidget {
                   iconUlke: 'assets/images/denmark.png',
                   ulkeAdi: 'Danimarka',
                 ),
-                SizedBox(height: 20),
               ],
             ),
           ),

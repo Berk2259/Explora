@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   // Her sayfa için renkler
   final List<Color> _pageColors = [
     Color(0xFF667eea),  // Gezi - Mor
-    Color(0xFF66a6ff),  // Doğa - Mavi
+    Color(0xFFa8edea),  // Doğa - Mavi
     Color(0xFFfcb69f),  // Yemek - Turuncu
     Color(0xFF2c3e50),  // Mağaza - Koyu Gri
     Color(0xFFff6b6b),  // Parti - Kırmızı

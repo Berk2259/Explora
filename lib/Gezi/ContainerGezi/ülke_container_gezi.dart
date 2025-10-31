@@ -25,7 +25,6 @@ class UlkeContainerGezi extends StatelessWidget {
         },
         child: Container(
           width: double.infinity,
-          height: 110,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: Colors.white,
@@ -38,67 +37,81 @@ class UlkeContainerGezi extends StatelessWidget {
               ),
             ],
           ),
-          child: Row(
-            children: [
-              Container(
-                margin: EdgeInsets.all(12),
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      spreadRadius: 1,
-                      blurRadius: 4,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(iconUlke, fit: BoxFit.cover),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        ulkeAdi,
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF2d3748),
-                        ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+               Container(
+                    width: 75,
+                    height: 75,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(
+                        color: Color(0xFF66a6ff).withOpacity(0.4),
+                        width: 2,
                       ),
-                      SizedBox(height: 6),
-                      Row(
-                        children: [
-                          Icon(Icons.location_on, size: 14, color: Color(0xFF667eea)),
-                          SizedBox(width: 4),
-                          Text(
-                            'Şehirlere ulaşmak için çift tıklayın.',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey[600],
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF66a6ff).withOpacity(0.2),
+                          blurRadius: 8,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    padding: EdgeInsets.all(6),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(14),
+                      child: Image.asset(iconUlke, fit: BoxFit.cover),
+                    ),
+                  ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          
+                          children: [
+                            Image.asset('assets/icons/ancient.png',scale: 25,),
+                            SizedBox(width: 4,),
+                            Text(
+                              ulkeAdi,
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF2d3748),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 6),
+                        Row(
+                          children: [
+                            Icon(Icons.location_on, size: 14, color: Color(0xFF667eea)),
+                            SizedBox(width: 4),
+                            Flexible(
+                            child: Text(
+                              'Şehirlere Ulaşmak İçin Çift Tıklayın',
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: Color(0xFF667eea),
+                              ),
                             ),
                           ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: Icon(Icons.arrow_forward_ios, size: 18, color: Color(0xFF667eea)),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: Image.asset('assets/icons/pillar.png',scale: 25,),
+                ),
+              ],
+            ),
           ),
         ),
       ),

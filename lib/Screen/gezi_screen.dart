@@ -18,15 +18,7 @@ class GeziScreen extends StatelessWidget {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
               ),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFF667eea),
-                  Color(0xFF764ba2),
-                  Color(0xFFf093fb),
-                ],
-              ),
+              color:  Color(0xFF667eea),
             ),
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
@@ -123,7 +115,6 @@ class GeziScreen extends StatelessWidget {
                   iconUlke: 'assets/images/denmark.png',
                   ulkeAdi: 'Danimarka',
                 ),
-                SizedBox(height: 16),
               ],
             ),
           ),
