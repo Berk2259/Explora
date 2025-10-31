@@ -70,27 +70,47 @@ class OrtakAppBar extends StatelessWidget {
                 ),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.home, color: Colors.blue.shade900),
-              title: Text(
-                'Uygulama Hakkında',
-                style: TextStyle(color: Colors.blue.shade900),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.blue.shade900,
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.home, color: Colors.white),
+                  title: Text(
+                    'Uygulama Hakkında',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UygulamaHakkindaScreen(),
+                    ),
+                  ),
+                ),
               ),
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => UygulamaHakkindaScreen())),
             ),
-            ListTile(
-              leading: Icon(Icons.mail, color: Colors.blue.shade900),
-              title: Text(
-                'İletişim',
-                style: TextStyle(color: Colors.blue.shade900),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.blue.shade900,
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.mail, color: Colors.white),
+                  title: Text('İletişim', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    mailGonder(
+                      'example@mail.com',
+                      subject: 'Merhaba',
+                      body: 'Bir Konuda Fikrim Var',
+                    );
+                  },
+                ),
               ),
-              onTap: () {
-                mailGonder(
-                  'example@mail.com',
-                  subject: 'Merhaba',
-                  body: 'Bir Konuda Fikrim Var',
-                );
-              },
             ),
           ],
         ),
