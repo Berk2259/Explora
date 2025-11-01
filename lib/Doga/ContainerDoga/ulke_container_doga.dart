@@ -1,4 +1,3 @@
-
 import 'package:explora/Doga/DetayScreenDoga/detay_screen_doga.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,9 @@ class UlkeContainerDoga extends StatelessWidget {
         onDoubleTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => UlkeDetayScreenDoga(ulkeAdi: ulkeAdi,)),
+            MaterialPageRoute(
+              builder: (context) => UlkeDetayScreenDoga(ulkeAdi: ulkeAdi),
+            ),
           );
         },
         child: Container(
@@ -30,10 +31,7 @@ class UlkeContainerDoga extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                Colors.white,
-                Color(0xFFe8f5e9),
-              ],
+              colors: [Colors.white, Color(0xFFe8f5e9)],
             ),
             border: Border.all(
               color: Color(0xFF4caf50).withOpacity(0.3),
@@ -56,23 +54,35 @@ class UlkeContainerDoga extends StatelessWidget {
                   width: 75,
                   height: 75,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    border: Border.all(
-                      color: Color(0xFF66a6ff).withOpacity(0.4),
-                      width: 2,
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xFF1b5e20),
+                        Color(0xFF4caf50),
+                        Color(0xFFF1F8E9),
+                      ],
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xFF66a6ff).withOpacity(0.2),
+                        color: Color(0xFF1b5e20).withOpacity(0.4),
+                        spreadRadius: 2,
                         blurRadius: 8,
-                        offset: Offset(0, 3),
+                        offset: Offset(0, 4),
                       ),
                     ],
                   ),
-                  padding: EdgeInsets.all(6),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(14),
-                    child: Image.asset(iconUlke, fit: BoxFit.cover),
+                  padding: EdgeInsets.all(4),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    padding: EdgeInsets.all(6),
+                    child: ClipOval(
+                      child: Image.asset(iconUlke, fit: BoxFit.cover),
+                    ),
                   ),
                 ),
                 SizedBox(width: 16),

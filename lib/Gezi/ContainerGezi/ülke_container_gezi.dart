@@ -41,29 +41,41 @@ class UlkeContainerGezi extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Row(
               children: [
-               Container(
-                    width: 75,
-                    height: 75,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      border: Border.all(
-                        color: Color(0xFF66a6ff).withOpacity(0.4),
-                        width: 2,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0xFF66a6ff).withOpacity(0.2),
-                          blurRadius: 8,
-                          offset: Offset(0, 3),
-                        ),
+                Container(
+                  width: 75,
+                  height: 75,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xFF667EEA),
+                        Color(0xFFA0AEC0),
+                        Color(0xFFF7FAFC),
                       ],
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFF667EEA).withOpacity(0.4),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.all(4),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
                     padding: EdgeInsets.all(6),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(14),
+                    child: ClipOval(
                       child: Image.asset(iconUlke, fit: BoxFit.cover),
                     ),
                   ),
+                ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
