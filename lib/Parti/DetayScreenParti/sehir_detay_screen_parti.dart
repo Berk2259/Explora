@@ -12,7 +12,7 @@ class SehirDetayScreenParti extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> mekanlar = MekanDataParti.mekanlar[sehirAdi]!;
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color(0xFFff6b6b),
       body: SafeArea(
         child: GestureDetector(
           onHorizontalDragEnd: (details) {

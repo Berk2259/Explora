@@ -11,7 +11,7 @@ class UlkeDetayScreenParti extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> cities = UlkeSehirlerDataOrtak.ulkeler[ulkeAdi]!;
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color(0xFFff6b6b),
       body: SafeArea(
         child: GestureDetector(
           onHorizontalDragEnd: (details) {

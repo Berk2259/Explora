@@ -12,7 +12,7 @@ class SehirDetayScreenDoga extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> mekanlar = MekanDataDoga.mekanlar[sehirAdi]!;
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color(0xFFa8edea),
       body: SafeArea(
         child: GestureDetector(
           onHorizontalDragEnd: (details) {
@@ -27,7 +27,7 @@ class SehirDetayScreenDoga extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: mekanlar
-                    .map((mekan) => MekanContainerDoga(mekanAdi: mekan, ))
+                    .map((mekan) => MekanContainerDoga(mekanAdi: mekan))
                     .toList(),
               ),
             ),

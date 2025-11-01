@@ -12,7 +12,7 @@ class SehirDetayScreenGezi extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> mekanlar = MekanDataGezi.mekanlar[sehirAdi]!;
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color(0xFF667eea),
       body: SafeArea(
         child: GestureDetector(
           onHorizontalDragEnd: (details) {

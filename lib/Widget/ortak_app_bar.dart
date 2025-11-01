@@ -77,7 +77,7 @@ class OrtakAppBar extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
-                  color: defaultColor,
+                  color: Colors.blue.shade900,
                 ),
                 child: ListTile(
                   leading: Icon(Icons.home, color: Colors.white),
@@ -99,7 +99,7 @@ class OrtakAppBar extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
-                  color: defaultColor,
+                  color: Colors.blue.shade900,
                 ),
                 child: ListTile(
                   leading: Icon(Icons.mail, color: Colors.white),

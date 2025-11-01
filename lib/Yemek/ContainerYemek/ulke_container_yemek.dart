@@ -34,12 +34,12 @@ class UlkeContainerYemek extends StatelessWidget {
               colors: [Colors.white, Color(0xFFe8f5e9)],
             ),
             border: Border.all(
-              color: Color(0xFF2c3e50).withOpacity(0.3),
+              color: Color(0xFFfcb69f).withOpacity(0.3),
               width: 1.5,
             ),
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF2c3e50).withOpacity(0.2),
+                color: Color(0xFFfcb69f).withOpacity(0.2),
                 spreadRadius: 1,
                 blurRadius: 10,
                 offset: Offset(0, 5),
@@ -62,7 +62,6 @@ class UlkeContainerYemek extends StatelessWidget {
                         Color(0xFFFFD3B6),
                         Color(0xFFFCB69F),
                         Color(0xFFFF8C42),
-
                       ],
                     ),
                     boxShadow: [
