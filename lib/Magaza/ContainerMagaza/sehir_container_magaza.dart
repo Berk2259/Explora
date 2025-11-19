@@ -27,7 +27,8 @@ class SehirContainerMagaza extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  child: Image.asset('assets/images/city.png'),
+                  backgroundColor: Colors.transparent,
+                  child: Image.asset('assets/icons/cityscape.png',color:Color(0xFF2c3e50)),
                 ),
                 SizedBox(width: 20),
                 Column(

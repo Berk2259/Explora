@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:explora/Gezi/DataGezi/data_gezi.dart';
@@ -27,9 +28,9 @@ class MekanContainerGezi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onDoubleTap: () {
+      onDoubleTap: () {
         _openMaps();
-        },
+      },
       child: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
         child: Container(
@@ -49,19 +50,25 @@ class MekanContainerGezi extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 20),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    mekanAdi,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'Konum için çift tıklayın',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AutoSizeText(
+                      mekanAdi,
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      maxLines: 1, // Taşarsa satır sayısını kısıtla
+                      minFontSize: 10, // Küçülebileceği en küçük boyut
+                      overflow:
+                          TextOverflow.ellipsis, // İstersen üç nokta koyar (...)
+                    ),
+                    Text(
+                      'Konum için çift tıklayın',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

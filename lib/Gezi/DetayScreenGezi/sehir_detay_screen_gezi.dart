@@ -20,16 +20,14 @@ class SehirDetayScreenGezi extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.transparent,
-            child: SingleChildScrollView(
-              child: Column(
-                children: mekanlar
-                    .map((mekan) => MekanContainerGezi(mekanAdi: mekan, ))
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                ...mekanlar
+                    .map((mekan) => MekanContainerGezi(mekanAdi: mekan))
                     .toList(),
-              ),
+                const SizedBox(height: 20),
+              ],
             ),
           ),
         ),

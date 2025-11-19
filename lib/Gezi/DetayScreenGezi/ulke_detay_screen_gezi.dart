@@ -34,7 +34,7 @@ class UlkeDetayScreenGezi extends StatelessWidget {
               ),
             ),
           ),
-        ),
+        ),       
       ),
     );
   }
