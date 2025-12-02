@@ -1,22 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:explora/Gezi/ContainerGezi/mekan_container_gezi.dart';
+import 'package:explora/Eglence/ContainerEglence/container_eglence.dart';
 import 'package:flutter/material.dart';
 
-//mekanlar burada listelenir
-class SehirDetayScreenGezi extends StatelessWidget {
+//Mekan kısımları yani şehirlerin detay kısımları burada bulunur
+class SehirDetayScreenEglence extends StatelessWidget {
   final String sehirAdi;
-  const SehirDetayScreenGezi({super.key, required this.sehirAdi});
+
+  const SehirDetayScreenEglence({super.key, required this.sehirAdi});
 
   @override
   Widget build(BuildContext context) {
     final docRef = FirebaseFirestore.instance
-        .collection('gezisehirler')
+        .collection('eglencesehirler')
         .doc(
           sehirAdi,
         ); //bu satır firestoredaki sehirler koleksiyonundan sehirAdi Id'li belgeye ulaşmayı sağlar
 
     return Scaffold(
-      backgroundColor: const Color(0xFF667eea),
+      backgroundColor: Color(0xFFff6b6b),
       body: SafeArea(
         child: GestureDetector(
           onHorizontalDragEnd: (details) {
@@ -57,7 +58,7 @@ class SehirDetayScreenGezi extends StatelessWidget {
                 child: Column(
                   children: [
                     ...mekanlar.map( //mekanlar listesindeki her elemanı map’layıp bir widget’a dönüştürüyor.
-                      (mekan) => MekanContainerGezi(mekan: mekan), //Her mekan için MekanContainerGezi widget’i oluşturuluyor.
+                      (mekan) => MekanContainerEglence(mekan: mekan), //Her mekan için MekanContainerGezi widget’i oluşturuluyor.
                     ),
                     const SizedBox(height: 20),
                   ],

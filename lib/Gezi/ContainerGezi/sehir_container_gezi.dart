@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:explora/Gezi/DetayScreenGezi/sehir_detay_screen_gezi.dart';
 
+//Her şehir için kullanılacak konteyner bileşeni firebase bağlantısından sonra burada bir değşiklik olmadı
 class SehirContainerGezi extends StatelessWidget {
   final String sehirAdi;
   const SehirContainerGezi({required this.sehirAdi, super.key});

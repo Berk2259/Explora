@@ -1,12 +1,12 @@
 
-import 'package:explora/Parti/DetayScreenParti/detay_screen_parti.dart';
+import 'package:explora/Eglence/DetayScreenEglence/detay_screen_eglence.dart';
 import 'package:flutter/material.dart';
 
 //Her ülkenin container dosyası aynı şekilde oluşturulacak. Sadece içeriği değişecek.
-class UlkeContainerParti extends StatelessWidget {
+class UlkeContainerEglence extends StatelessWidget {
   final String ulkeAdi;
   final String iconUlke;
-  const UlkeContainerParti({
+  const UlkeContainerEglence({
     super.key,
     required this.ulkeAdi,
     required this.iconUlke,
@@ -20,7 +20,7 @@ class UlkeContainerParti extends StatelessWidget {
         onDoubleTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => UlkeDetayScreenParti(ulkeAdi: ulkeAdi,)),
+            MaterialPageRoute(builder: (context) => UlkeDetayScreenEglence(ulkeAdi: ulkeAdi,)),
           );
         },
         child: Container(

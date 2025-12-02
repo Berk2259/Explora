@@ -83,8 +83,7 @@ class UlkeContainerGezi extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          
+                        Row(     
                           children: [
                             Image.asset('assets/icons/ancient.png',scale: 25,),
                             SizedBox(width: 4,),

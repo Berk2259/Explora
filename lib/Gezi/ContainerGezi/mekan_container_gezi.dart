@@ -7,7 +7,7 @@ class MekanContainerGezi extends StatelessWidget {
   const MekanContainerGezi({super.key, required this.mekan});
 
   Future<void> _openMaps() async {
-    final String? url = mekan['konum'];
+    final String? url = mekan['konum']; //firestoredan aldığı her mekanının bilgilerini içinde tutan bir sözlük gibi
     if (url == null || url.isEmpty) {
       debugPrint("Bu mekan için konum linki bulunamadı: ${mekan['isim']}");
       return;
@@ -22,7 +22,7 @@ class MekanContainerGezi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mekanAdi = mekan['isim'] ?? 'Bilinmeyen Mekan';
+    final mekanAdi = mekan['isim'] ?? 'Bilinmeyen Mekan'; //mekanAdi mekanın ismi olackak eğer mekanın ismi firestore'da eksikse 'Bilinmeyen mekan' kullanılacak
 
     return GestureDetector(
       onDoubleTap: _openMaps,
