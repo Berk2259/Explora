@@ -1,22 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:explora/Gezi/DataGezi/data_gezi.dart';
 
-//Her mekan için kullanılacak konteyner bileşeni
 class MekanContainerGezi extends StatelessWidget {
-  final String mekanAdi;
-  const MekanContainerGezi({super.key, required this.mekanAdi});
+  final Map<String, dynamic> mekan; // artık map alıyor
+  const MekanContainerGezi({super.key, required this.mekan});
 
   Future<void> _openMaps() async {
-    final String? url = KonumDataGezi.konumlar[mekanAdi]?.first;
-
-    if (url == null) {
-      // Eğer bu mekan için link tanımlı değilse uyarı verelim
-      debugPrint("Bu mekan için konum linki bulunamadı: $mekanAdi");
+    final String? url = mekan['konum'];
+    if (url == null || url.isEmpty) {
+      debugPrint("Bu mekan için konum linki bulunamadı: ${mekan['isim']}");
       return;
     }
-
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
@@ -27,10 +22,10 @@ class MekanContainerGezi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mekanAdi = mekan['isim'] ?? 'Bilinmeyen Mekan';
+
     return GestureDetector(
-      onDoubleTap: () {
-        _openMaps();
-      },
+      onDoubleTap: _openMaps,
       child: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
         child: Container(
@@ -49,7 +44,7 @@ class MekanContainerGezi extends StatelessWidget {
                   child: Image.asset('assets/images/google-maps.png'),
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -57,13 +52,13 @@ class MekanContainerGezi extends StatelessWidget {
                   children: [
                     AutoSizeText(
                       mekanAdi,
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                      maxLines: 1, // Taşarsa satır sayısını kısıtla
-                      minFontSize: 10, // Küçülebileceği en küçük boyut
-                      overflow:
-                          TextOverflow.ellipsis, // İstersen üç nokta koyar (...)
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
+                      maxLines: 1,
+                      minFontSize: 10,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    Text(
+                    const Text(
                       'Konum için çift tıklayın',
                       style: TextStyle(fontSize: 12),
                     ),
