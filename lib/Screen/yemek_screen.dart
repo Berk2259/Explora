@@ -9,16 +9,18 @@ class YemekScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrtakAppBar(
       title: "Yemek Yerleri",
+      appBarColor: Color(0xFFfcb69f),
       body: SafeArea(
         child: SingleChildScrollView(
-          child:  Container(
+          child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
               ),
-              color: Colors.blue,
+              color:  Color(0xFFfcb69f),
             ),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               children: [
                 UlkeContainerYemek(
@@ -104,11 +106,11 @@ class YemekScreen extends StatelessWidget {
                 UlkeContainerYemek(
                   iconUlke: 'assets/images/macedonia.png',
                   ulkeAdi: 'Makedonya',
-                ),  
+                ),
                 UlkeContainerYemek(
                   iconUlke: 'assets/images/hungary.png',
                   ulkeAdi: 'Macaristan',
-                ),  
+                ),
                 UlkeContainerYemek(
                   iconUlke: 'assets/images/denmark.png',
                   ulkeAdi: 'Danimarka',

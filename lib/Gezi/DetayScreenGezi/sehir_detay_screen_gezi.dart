@@ -12,7 +12,7 @@ class SehirDetayScreenGezi extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> mekanlar = MekanDataGezi.mekanlar[sehirAdi]!;
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color(0xFF667eea),
       body: SafeArea(
         child: GestureDetector(
           onHorizontalDragEnd: (details) {
@@ -20,16 +20,14 @@ class SehirDetayScreenGezi extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.transparent,
-            child: SingleChildScrollView(
-              child: Column(
-                children: mekanlar
-                    .map((mekan) => MekanContainerGezi(mekanAdi: mekan, ))
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                ...mekanlar
+                    .map((mekan) => MekanContainerGezi(mekanAdi: mekan))
                     .toList(),
-              ),
+                const SizedBox(height: 20),
+              ],
             ),
           ),
         ),

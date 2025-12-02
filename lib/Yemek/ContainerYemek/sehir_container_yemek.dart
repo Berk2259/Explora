@@ -27,7 +27,8 @@ class SehirContainerYemek extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  child: Image.asset('assets/images/city.png'),
+                  backgroundColor: Colors.transparent,
+                  child: Image.asset('assets/icons/cityscape.png',color: Color(0xFFfcb69f),),
                 ),
                 SizedBox(width: 20),
                 Column(

@@ -9,16 +9,26 @@ class MagazaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrtakAppBar(
       title: "Mağazalar",
+      appBarColor: Color(0xFF2c3e50),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
-              ),
-              color: Colors.blue,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
             ),
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color(0xFF2c3e50),
+                Color(0xFF34495e),
+                Color(0xFF7f8c8d),
+              ],
+            ),
+          ),
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 18, vertical: 22),
             child: Column(
               children: [
                 UlkeContainerMagaza(
@@ -113,6 +123,7 @@ class MagazaScreen extends StatelessWidget {
                   iconUlke: 'assets/images/denmark.png',
                   ulkeAdi: 'Danimarka',
                 ),
+                SizedBox(height: 16),
               ],
             ),
           ),

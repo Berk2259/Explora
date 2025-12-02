@@ -5,8 +5,9 @@ import 'package:url_launcher/url_launcher.dart';
 class OrtakAppBar extends StatelessWidget {
   final String title;
   final Widget body;
+  final Color? appBarColor;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  OrtakAppBar({required this.title, required this.body, Key? key})
+  OrtakAppBar({required this.title, required this.body, this.appBarColor, Key? key})
     : super(key: key);
 
   void mailGonder(String email, {String subject = '', String body = ''}) async {
@@ -26,12 +27,13 @@ class OrtakAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final defaultColor = appBarColor ?? Colors.blue.shade900;
     return Scaffold(
-      backgroundColor: Colors.blue.shade900,
+      backgroundColor: defaultColor,
       key: _scaffoldKey, // <-- Scaffold key ekledik
       appBar: AppBar(
         title: Text(title, style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: defaultColor,
         centerTitle: true,
         toolbarHeight: 40,
         leading: Builder(

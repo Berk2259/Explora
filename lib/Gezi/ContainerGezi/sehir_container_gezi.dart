@@ -27,7 +27,8 @@ class SehirContainerGezi extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  child: Image.asset('assets/images/city.png'),
+                  backgroundColor: Colors.transparent,
+                  child: Image.asset('assets/icons/cityscape.png',color: Color(0xFF667eea),),
                 ),
                 SizedBox(width: 20),
                 Column(

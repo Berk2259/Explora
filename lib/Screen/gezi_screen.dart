@@ -9,6 +9,7 @@ class GeziScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrtakAppBar(
       title: "Gezilecek Mekanlar",
+      appBarColor: Color(0xFF667eea),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -17,8 +18,9 @@ class GeziScreen extends StatelessWidget {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
               ),
-              color: Colors.blue,
+              color:  Color(0xFF667eea),
             ),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               children: [
                 UlkeContainerGezi(
