@@ -1,6 +1,6 @@
 import 'package:explora/Widget/ortak_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:explora/Parti/ContainerParti/container_parti.dart';
+import 'package:explora/Eglence/ContainerEglence/container_eglence.dart';
 
 class PartiScreen extends StatelessWidget {
   const PartiScreen({super.key});
@@ -23,95 +23,95 @@ class PartiScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               children: [
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/turkey.png',
                   ulkeAdi: 'Türkiye',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/spain.png',
                   ulkeAdi: 'İspanya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/france.png',
                   ulkeAdi: 'Fransa',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/ıtaly.png',
                   ulkeAdi: 'İtalya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/germany.png',
                   ulkeAdi: 'Almanya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/poland.png',
                   ulkeAdi: 'Polonya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/netherlands.png',
                   ulkeAdi: 'Hollanda',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/england.png',
                   ulkeAdi: 'İngiltere',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/czech.png',
                   ulkeAdi: 'Çekya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/sweeden.png',
                   ulkeAdi: 'İsveç',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/switzerland.png',
                   ulkeAdi: 'İsviçre',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/norway.png',
                   ulkeAdi: 'Norveç',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/portugal.png',
                   ulkeAdi: 'Portekiz',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/greece.png',
                   ulkeAdi: 'Yunanistan',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/austria.png',
                   ulkeAdi: 'Avusturya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/finland.png',
                   ulkeAdi: 'Finlandiya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/bulgaria.png',
                   ulkeAdi: 'Bulgaristan',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/slovakia.png',
                   ulkeAdi: 'Slovakya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/albania.png',
                   ulkeAdi: 'Arnavutluk',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/croatia.png',
                   ulkeAdi: 'Hırvatistan',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/macedonia.png',
                   ulkeAdi: 'Makedonya',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/hungary.png',
                   ulkeAdi: 'Macaristan',
                 ),
-                UlkeContainerParti(
+                UlkeContainerEglence(
                   iconUlke: 'assets/images/denmark.png',
                   ulkeAdi: 'Danimarka',
                 ),

@@ -1,7 +1,7 @@
-import 'package:explora/Gezi/DetayScreenGezi/sehir_detay_screen_gezi.dart';
 import 'package:flutter/material.dart';
+import 'package:explora/Gezi/DetayScreenGezi/sehir_detay_screen_gezi.dart';
 
-//Her şehir için kullanılacak konteyner bileşeni
+//Her şehir için kullanılacak konteyner bileşeni firebase bağlantısından sonra burada bir değşiklik olmadı
 class SehirContainerGezi extends StatelessWidget {
   final String sehirAdi;
   const SehirContainerGezi({required this.sehirAdi, super.key});
@@ -12,7 +12,12 @@ class SehirContainerGezi extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       child: GestureDetector(
         onDoubleTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreenGezi(sehirAdi: sehirAdi,)));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SehirDetayScreenGezi(sehirAdi: sehirAdi),
+            ),
+          );
         },
         child: Container(
           width: double.infinity,
@@ -28,18 +33,25 @@ class SehirContainerGezi extends StatelessWidget {
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.transparent,
-                  child: Image.asset('assets/icons/cityscape.png',color: Color(0xFF667eea),),
+                  child: Image.asset(
+                    'assets/icons/cityscape.png',
+                    color: const Color(0xFF667eea),
+                  ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       sehirAdi,
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                    Text('Gezilecek yerlere ulaşmak için çift tıklayın.',style: TextStyle(fontSize: 12),),
+                    const Text(
+                      'Gezilecek yerlere ulaşmak için çift tıklayın.',
+                      style: TextStyle(fontSize: 12),
+                    ),
                   ],
                 ),
               ],

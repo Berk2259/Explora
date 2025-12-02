@@ -1,10 +1,10 @@
-import 'package:explora/Parti/DetayScreenParti/detay_screen_parti.dart';
+import 'package:explora/Eglence/DetayScreenEglence/detay_screen_eglence.dart';
 import 'package:flutter/material.dart';
 
 //Her şehir için kullanılacak konteyner bileşeni
-class SehirContainerParti extends StatelessWidget {
+class SehirContainerEglence extends StatelessWidget {
   final String sehirAdi;
-  const SehirContainerParti({required this.sehirAdi, super.key});
+  const SehirContainerEglence({required this.sehirAdi, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class SehirContainerParti extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       child: GestureDetector(
         onDoubleTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreenParti(sehirAdi: sehirAdi,)));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreenEglence(sehirAdi: sehirAdi,)));
         },
         child: Container(
           width: double.infinity,
@@ -39,7 +39,7 @@ class SehirContainerParti extends StatelessWidget {
                       sehirAdi,
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                    Text('Doğal güzellikleri görmek için çift tıklayın.',style: TextStyle(fontSize: 12),),
+                    Text('Eğlence Yerlerini Görmek İçin Çift Tıklayın.',style: TextStyle(fontSize: 12),),
                   ],
                 ),
               ],

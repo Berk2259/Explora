@@ -1,21 +1,19 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:explora/Yemek/DataYemek/data_yemek.dart';
+
 
 //Her mekan için kullanılacak konteyner bileşeni
 class MekanContainerYemek extends StatelessWidget {
-  final String mekanAdi;
-  const MekanContainerYemek({super.key, required this.mekanAdi});
+  final Map<String, dynamic> mekan; // artık map alıyor
+  const MekanContainerYemek({super.key, required this.mekan});
 
-  Future<void> _openMaps() async {
-    final String? url = KonumDataYemek.konumlar[mekanAdi]?.first;
-
-    if (url == null) {
-      // Eğer bu mekan için link tanımlı değilse uyarı verelim
-      debugPrint("Bu mekan için konum linki bulunamadı: $mekanAdi");
+ Future<void> _openMaps() async {
+    final String? url = mekan['konum']; //firestoredan aldığı her mekanının bilgilerini içinde tutan bir sözlük gibi
+    if (url == null || url.isEmpty) {
+      debugPrint("Bu mekan için konum linki bulunamadı: ${mekan['isim']}");
       return;
     }
-
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
@@ -26,6 +24,7 @@ class MekanContainerYemek extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mekanAdi = mekan['isim'] ?? 'Bilinmeyen Mekan'; //mekanAdi mekanın ismi olackak eğer mekanın ismi firestore'da eksikse 'Bilinmeyen mekan' kullanılacak
     return GestureDetector(
         onDoubleTap: () {
         _openMaps();
@@ -53,10 +52,14 @@ class MekanContainerYemek extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    mekanAdi,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
+                  AutoSizeText(
+                      mekanAdi,
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
+                      maxLines: 1,
+                      minFontSize: 10,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   Text(
                     'Konum için çift tıklayın',
                     style: TextStyle(fontSize: 12),
