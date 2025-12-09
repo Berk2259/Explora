@@ -10,6 +10,7 @@ class PartiScreen extends StatelessWidget {
     return OrtakAppBar(
       title: "Parti Mekanları",
       appBarColor: Color(0xFFff6b6b),
+      seciliEkran: PartiScreen(),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(

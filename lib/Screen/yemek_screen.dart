@@ -10,6 +10,7 @@ class YemekScreen extends StatelessWidget {
     return OrtakAppBar(
       title: "Yemek Yerleri",
       appBarColor: Color(0xFFfcb69f),
+      seciliEkran: YemekScreen(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -18,7 +19,7 @@ class YemekScreen extends StatelessWidget {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
               ),
-              color:  Color(0xFFfcb69f),
+              color: Color(0xFFfcb69f),
             ),
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(

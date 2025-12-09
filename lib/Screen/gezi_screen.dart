@@ -10,6 +10,7 @@ class GeziScreen extends StatelessWidget {
     return OrtakAppBar(
       title: "Gezilecek Mekanlar",
       appBarColor: Color(0xFF667eea),
+      seciliEkran: GeziScreen(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(

@@ -10,6 +10,7 @@ class MagazaScreen extends StatelessWidget {
     return OrtakAppBar(
       title: "Mağazalar",
       appBarColor: Color(0xFF2c3e50),
+      seciliEkran: MagazaScreen(),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
