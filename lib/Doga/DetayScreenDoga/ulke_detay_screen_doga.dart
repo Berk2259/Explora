@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:explora/Doga/ContainerDoga/container_doga.dart';
-import 'package:explora/Ortak/DataOrtak/data_ortak.dart';
 import 'package:flutter/material.dart';
 
 //Her ülkenin detay kısımları burada bulunur yani şehirlerin listelendiği ekran

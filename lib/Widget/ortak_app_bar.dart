@@ -254,7 +254,7 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                     onPressed: () {
                       _openWebsite('https://www.instagram.com');
                     },
-                    icon: Icon(FontAwesomeIcons.instagram, size: 40),
+                    icon: Icon(FontAwesomeIcons.squareInstagram, size: 40),
                   ),
                   SizedBox(width: 10),
                   IconButton(

@@ -1,1 +1,0 @@
-export 'ulke_sehirler_data_ortak.dart';
