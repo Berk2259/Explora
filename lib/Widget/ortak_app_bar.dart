@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:explora/Screen/gizlilik_screen.dart';
 import 'package:explora/Screen/screen.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,21 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
     MagazaScreen: Color(0xFF2c3e50),
     EglenceScreen: Color(0xFFff6b6b),
   };
+  Future<String?> getContactEmail() async {
+    try {
+      final doc = await FirebaseFirestore.instance
+          .collection('config')
+          .doc('contact')
+          .get();
+      if (doc.exists) {
+        return doc.get('email') as String;
+      }
+      return null;
+    } catch (e) {
+      print('Hata: $e');
+      return null;
+    }
+  }
 
   void mailGonder(String email, {String subject = '', String body = ''}) async {
     final Uri emailUri = Uri(
@@ -146,17 +162,28 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                           borderRadius: BorderRadius.circular(25),
                           color: ekranRenkleri[widget.seciliEkran.runtimeType],
                         ),
-                        child: ListTile(
-                          leading: Icon(Icons.mail, color: Colors.white),
-                          title: Text(
-                            'İletişim',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          onTap: () {
-                            mailGonder(
-                              'example@mail.com',
-                              subject: 'Merhaba',
-                              body: 'Bir Konuda Fikrim Var',
+                        child: FutureBuilder<String?>(
+                          future: getContactEmail(), // Firebase'den maili çek
+                          builder: (context, snapshot) {
+                            return ListTile(
+                              leading: const Icon(
+                                Icons.mail,
+                                color: Colors.white,
+                              ),
+                              title: const Text(
+                                'İletişim',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onTap:
+                                  snapshot.hasData && snapshot.data!.isNotEmpty
+                                  ? () {
+                                      mailGonder(
+                                        snapshot.data!,
+                                        subject: 'Merhaba',
+                                        body: 'Bir Konuda Fikrim Var',
+                                      );
+                                    }
+                                  : null, // mail yoksa tıklanamaz
                             );
                           },
                         ),

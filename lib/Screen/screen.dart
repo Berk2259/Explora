@@ -6,3 +6,4 @@ export 'magaza_screen.dart';
 export 'eglence_screen.dart';
 export 'uygulama_hakkinda_screen.dart';
 export 'gizlilik_screen.dart';
+export 'splash_screen.dart';
