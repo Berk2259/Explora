@@ -86,21 +86,24 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    DrawerHeader(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/icons/newlogo.png'),
-                          fit: BoxFit.cover,
+                    SizedBox(
+                      height: 280,
+                      child: DrawerHeader(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/icons/newlogo.png'),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Text(
-                          'Explora',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                        child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Text(
+                            'Explora',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -125,7 +128,9 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => UygulamaHakkindaScreen(seciliEkran:  widget.seciliEkran,),
+                              builder: (context) => UygulamaHakkindaScreen(
+                                seciliEkran: widget.seciliEkran,
+                              ),
                             ),
                           ),
                         ),
@@ -173,10 +178,12 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                             'Gizlilik Politikası',
                             style: TextStyle(color: Colors.white),
                           ),
-                           onTap: () => Navigator.push(
+                          onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => GizlilikScreen(seciliEkran:  widget.seciliEkran,),
+                              builder: (context) => GizlilikScreen(
+                                seciliEkran: widget.seciliEkran,
+                              ),
                             ),
                           ),
                         ),
@@ -209,6 +216,7 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                 ),
               ),
             ),
+
             // Alt öğeler (sosyal ikonlar) sabit
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
@@ -236,6 +244,14 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                     icon: Icon(FontAwesomeIcons.xTwitter, size: 35),
                   ),
                 ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Uygulamada konumla ilgili sorunlar olabilir uygulamayı kullanırken bu durumu göz önünde bulundurun',
+                style: TextStyle(fontSize: 10),
+                textAlign: TextAlign.center,
               ),
             ),
           ],

@@ -13,18 +13,17 @@ class UlkeDetayScreenEglence extends StatelessWidget {
     final sehirlerRef = FirebaseFirestore.instance.collection(
       'eglencesehirler',
     );
-    return Scaffold(
-      backgroundColor: Color(0xFFff6b6b),
-      body: SafeArea(
-        child: NotificationListener<ScrollNotification>(
-          onNotification: (_) => true,
-          child: GestureDetector(
-            behavior: HitTestBehavior.translucent,
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! > 300) {
-                Navigator.of(context).pop();
-              }
-            },
+    return GestureDetector(
+      onHorizontalDragEnd: (details) {
+        if (details.primaryVelocity! > 300) {
+          Navigator.of(context).pop();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Color(0xFFff6b6b),
+        body: SafeArea(
+          child: NotificationListener<ScrollNotification>(
+            onNotification: (_) => true,
             child: StreamBuilder<QuerySnapshot>(
               stream: sehirlerRef
                   .where('ulke', isEqualTo: ulkeAdi)

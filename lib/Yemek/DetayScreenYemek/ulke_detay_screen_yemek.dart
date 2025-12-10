@@ -5,35 +5,53 @@ import 'package:flutter/material.dart';
 
 //Her ülkenin detay kısımları burada bulunur yani şehirlerin listelendiği ekran
 class UlkeDetayScreenYemek extends StatelessWidget {
-    final String ulkeAdi;
-  const UlkeDetayScreenYemek({super.key,required this.ulkeAdi});
+  final String ulkeAdi;
+  const UlkeDetayScreenYemek({super.key, required this.ulkeAdi});
 
   @override
   Widget build(BuildContext context) {
     final sehirlerRef = FirebaseFirestore.instance.collection('yemeksehirler');
-    return Scaffold(
-      backgroundColor: Color(0xFFfcb69f),
-      body: SafeArea(
-        child: StreamBuilder<QuerySnapshot>(
-          stream: sehirlerRef.where('ulke', isEqualTo: ulkeAdi).snapshots(), //Firestore'da şehirlerin bulunduğu koleksiyon referansı.→ ülke alanı, verilen ülke ismine eşit olan şehirleri filtreler.
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) { //Stream’den henüz veri gelmediyse
-              return const Center(child: CircularProgressIndicator()); //kullanıcıya bir “yükleniyor” animasyonu gösterilir.
-            }
+    return GestureDetector(
+      onHorizontalDragEnd: (details) {
+        if (details.primaryVelocity! > 300) {
+          Navigator.of(context).pop();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Color(0xFFfcb69f),
+        body: SafeArea(
+          child: StreamBuilder<QuerySnapshot>(
+            stream: sehirlerRef
+                .where('ulke', isEqualTo: ulkeAdi)
+                .snapshots(), //Firestore'da şehirlerin bulunduğu koleksiyon referansı.→ ülke alanı, verilen ülke ismine eşit olan şehirleri filtreler.
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                //Stream’den henüz veri gelmediyse
+                return const Center(
+                  child: CircularProgressIndicator(),
+                ); //kullanıcıya bir “yükleniyor” animasyonu gösterilir.
+              }
 
-            final sehirler = snapshot.data!.docs; //Firestore’dan dönen QuerySnapshot içindeki tüm dökümanları alır.
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  ...sehirler.map((doc) { //Her şehir dokümanı için bir widget oluşturur.
-                    final sehirAdi = doc.id; //firestore'da dokümanın ID'si şehir adıdır.
-                    return SehirContainerYemek(sehirAdi: sehirAdi); //Her şehir için özel bir tasarım widget’i oluşturulur.
-                  }).toList(),
-                  const SizedBox(height: 32),
-                ],
-              ),
-            );
-          },
+              final sehirler = snapshot
+                  .data!
+                  .docs; //Firestore’dan dönen QuerySnapshot içindeki tüm dökümanları alır.
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ...sehirler.map((doc) {
+                      //Her şehir dokümanı için bir widget oluşturur.
+                      final sehirAdi =
+                          doc.id; //firestore'da dokümanın ID'si şehir adıdır.
+                      return SehirContainerYemek(
+                        sehirAdi: sehirAdi,
+                      ); //Her şehir için özel bir tasarım widget’i oluşturulur.
+                    }).toList(),
+                    const SizedBox(height: 32),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
