@@ -11,7 +11,7 @@ class SehirContainerMagaza extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       child: GestureDetector(
-        onDoubleTap: () {
+        onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreenMagaza(sehirAdi: sehirAdi,)));
         },
         child: Container(

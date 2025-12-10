@@ -1,3 +1,4 @@
+import 'package:explora/Screen/gizlilik_screen.dart';
 import 'package:explora/Screen/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,10 +28,10 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
   // Ekrana göre Drawer rengi
   final Map<Type, Color> ekranRenkleri = {
     GeziScreen: Color(0xFF667eea),
-    DogaScreen: Color(0xFFa8edea),
+    DogaScreen: Color(0xFF81C784),
     YemekScreen: Color(0xFFfcb69f),
     MagazaScreen: Color(0xFF2c3e50),
-    PartiScreen: Color(0xFFff6b6b),
+    EglenceScreen: Color(0xFFff6b6b),
   };
 
   void mailGonder(String email, {String subject = '', String body = ''}) async {
@@ -116,7 +117,7 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                           color: ekranRenkleri[widget.seciliEkran.runtimeType],
                         ),
                         child: ListTile(
-                          leading: Icon(Icons.home, color: Colors.white),
+                          leading: Icon(Icons.info, color: Colors.white),
                           title: Text(
                             'Uygulama Hakkında',
                             style: TextStyle(color: Colors.white),
@@ -124,7 +125,7 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => UygulamaHakkindaScreen(),
+                              builder: (context) => UygulamaHakkindaScreen(seciliEkran:  widget.seciliEkran,),
                             ),
                           ),
                         ),
@@ -172,11 +173,16 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                             'Gizlilik Politikası',
                             style: TextStyle(color: Colors.white),
                           ),
-                          onTap: () {},
+                           onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => GizlilikScreen(seciliEkran:  widget.seciliEkran,),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                    Padding(
+                    /* Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 8,
@@ -198,7 +204,7 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                           onTap: () {},
                         ),
                       ),
-                    ),
+                    ), */
                   ],
                 ),
               ),

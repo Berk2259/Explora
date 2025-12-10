@@ -9,7 +9,7 @@ class DogaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrtakAppBar(
       title: "Doğal Mekanlar",
-      appBarColor: Color(0xFFa8edea),
+      appBarColor: Color(0xFF81C784),
       seciliEkran: DogaScreen(),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -19,7 +19,7 @@ class DogaScreen extends StatelessWidget {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
               ),
-              color:  Color(0xFFa8edea),
+              color:  Color(0xFF81C784),
             ),
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
             child: Column(

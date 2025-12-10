@@ -16,7 +16,7 @@ class UlkeContainerMagaza extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: GestureDetector(
-        onDoubleTap: () {
+        onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(

@@ -12,7 +12,7 @@ class UlkeDetayScreenDoga extends StatelessWidget {
   Widget build(BuildContext context) {
     final sehirlerRef = FirebaseFirestore.instance.collection('dogasehirler');
     return Scaffold(
-      backgroundColor: Color(0xFFa8edea),
+      backgroundColor: Color(0xFF81C784),
       body: SafeArea(
         child:  StreamBuilder<QuerySnapshot>(
           stream: sehirlerRef.where('ulke', isEqualTo: ulkeAdi).snapshots(), //Firestore'da şehirlerin bulunduğu koleksiyon referansı.→ ülke alanı, verilen ülke ismine eşit olan şehirleri filtreler.

@@ -11,7 +11,7 @@ class SehirContainerDoga extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       child: GestureDetector(
-        onDoubleTap: () {
+        onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreenDoga(sehirAdi: sehirAdi,)));
         },
         child: Container(
@@ -28,7 +28,7 @@ class SehirContainerDoga extends StatelessWidget {
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.transparent,
-                  child: Image.asset('assets/icons/cityscape.png',color:Color(0xFFa8edea),),
+                  child: Image.asset('assets/icons/cityscape.png',color:Color(0xFF81C784),),
                 ),
                 SizedBox(width: 20),
                 Column(

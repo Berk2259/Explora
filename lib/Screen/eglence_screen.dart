@@ -2,15 +2,15 @@ import 'package:explora/Widget/ortak_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:explora/Eglence/ContainerEglence/container_eglence.dart';
 
-class PartiScreen extends StatelessWidget {
-  const PartiScreen({super.key});
+class EglenceScreen extends StatelessWidget {
+  const EglenceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return OrtakAppBar(
-      title: "Parti Mekanları",
+      title: "Eğlence Mekanları",
       appBarColor: Color(0xFFff6b6b),
-      seciliEkran: PartiScreen(),
+      seciliEkran: EglenceScreen(),
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(

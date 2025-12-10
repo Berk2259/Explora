@@ -17,7 +17,7 @@ class SehirDetayScreenDoga extends StatelessWidget {
         ); //bu satır firestoredaki sehirler koleksiyonundan sehirAdi Id'li belgeye ulaşmayı sağlar
 
     return Scaffold(
-      backgroundColor: Color(0xFFa8edea),
+      backgroundColor: Color(0xFF81C784),
       body: SafeArea(
         child: GestureDetector(
           onHorizontalDragEnd: (details) {
