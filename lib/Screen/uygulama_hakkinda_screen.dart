@@ -22,44 +22,31 @@ class _UygulamaHakkindaScreenState extends State<UygulamaHakkindaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // AppBar eklenmesi tavsiye edilir, böylece geri tuşu olur.
+      // Şimdilik sadece body'yi düzeltelim.
       backgroundColor: ekranRenkleri[widget.seciliEkran.runtimeType],
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50.0),
-            child: CircleAvatar(
-              backgroundImage: AssetImage('assets/icons/newlogo.png'),
-              radius: 70,
-            ),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
-            child: Container(
-              width: double.infinity,
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white.withOpacity(0.18),
-                border: Border.all(
-                  color: Colors.white.withOpacity(0.3),
-                  width: 1.1,
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  'Explora',
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
+
+      // 1. Düzeltme: Tüm içeriği SafeArea içine aldık.
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/icons/newlogo.png'),
+                radius: 70,
               ),
             ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 16.0,
+                left: 16.0,
+                right: 16.0,
+              ),
               child: Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height,
+                height: 50,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white.withOpacity(0.18),
@@ -196,8 +183,8 @@ class _UygulamaHakkindaScreenState extends State<UygulamaHakkindaScreen> {
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
