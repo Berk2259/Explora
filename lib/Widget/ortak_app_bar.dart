@@ -266,7 +266,7 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                   SizedBox(width: 10),
                   IconButton(
                     onPressed: () {
-                      _openWebsite('https://x.com');
+                      _openWebsite('https://x.com/Explora_0');
                     },
                     icon: Icon(FontAwesomeIcons.xTwitter, size: 35),
                   ),

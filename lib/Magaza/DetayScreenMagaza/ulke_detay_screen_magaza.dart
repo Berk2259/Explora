@@ -9,7 +9,9 @@ class UlkeDetayScreenMagaza extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sehirlerRef = FirebaseFirestore.instance.collection('magazasehirler');
+    final configRef = FirebaseFirestore.instance
+        .collection('config')
+        .doc('sehir_listeleri');
     return GestureDetector(
       onHorizontalDragEnd: (details) {
         if (details.primaryVelocity! > 300) {
@@ -19,32 +21,43 @@ class UlkeDetayScreenMagaza extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Color(0xFF2c3e50),
         body: SafeArea(
-          child: StreamBuilder<QuerySnapshot>(
-            stream: sehirlerRef
-                .where('ulke', isEqualTo: ulkeAdi)
-                .snapshots(), //Firestore'da şehirlerin bulunduğu koleksiyon referansı.→ ülke alanı, verilen ülke ismine eşit olan şehirleri filtreler.
+          // StreamBuilder yerine FutureBuilder kullanıyoruz (Veri çok değişmediği için)
+          child: FutureBuilder<DocumentSnapshot>(
+            future: configRef.get(),
+
+            // ... FutureBuilder başlangıcı aynı ...
             builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                //Stream’den henüz veri gelmediyse
-                return const Center(
-                  child: CircularProgressIndicator(),
-                ); //kullanıcıya bir “yükleniyor” animasyonu gösterilir.
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
               }
 
-              final sehirler = snapshot
-                  .data!
-                  .docs; //Firestore’dan dönen QuerySnapshot içindeki tüm dökümanları alır.
+              if (!snapshot.hasData || !snapshot.data!.exists) {
+                return const Center(child: Text("Veri bulunamadı."));
+              }
+
+              // 1. Veriyi Map olarak alıyoruz
+              final data = snapshot.data!.data() as Map<String, dynamic>?;
+
+              // 2. KRİTİK NOKTA BURASI!
+              // Eğer ulkeAdi "Türkiye" ise, Firebase'deki "Türkiye" dizisini çeker.
+              // Eğer "İspanya" ise "İspanya" dizisini çeker.
+              final List<dynamic> hamListe = data?[ulkeAdi] ?? [];
+
+              if (hamListe.isEmpty) {
+                return const Center(
+                  child: Text("Bu ülke için şehir listesi henüz eklenmemiş."),
+                );
+              }
+
+              // 3. Listeyi String listesine çevir
+              final List<String> sehirIsimleri = hamListe.cast<String>();
+
               return SingleChildScrollView(
                 child: Column(
                   children: [
-                    ...sehirler.map((doc) {
-                      //Her şehir dokümanı için bir widget oluşturur.
-                      final sehirAdi =
-                          doc.id; //firestore'da dokümanın ID'si şehir adıdır.
-                      return SehirContainerMagaza(
-                        sehirAdi: sehirAdi,
-                      ); //Her şehir için özel bir tasarım widget’i oluşturulur.
-                    }).toList(),
+                    ...sehirIsimleri.map((isim) {
+                      return SehirContainerMagaza(sehirAdi: isim);
+                    }),
                     const SizedBox(height: 32),
                   ],
                 ),
