@@ -1,94 +1,147 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:explora/Gezi/ContainerGezi/mekan_container_gezi.dart'; // Senin widget yolun
 import 'package:explora/Yemek/ContainerYemek/container_yemek.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-//Mekan kısımları yani şehirlerin detay kısımları burada bulunur
-class SehirDetayScreenYemek extends StatelessWidget {
+class SehirDetayScreenYemek extends StatefulWidget {
+  final String ulkeAdi;
   final String sehirAdi;
 
-  const SehirDetayScreenYemek({super.key, required this.sehirAdi});
+  const SehirDetayScreenYemek({
+    super.key,
+    required this.ulkeAdi,
+    required this.sehirAdi,
+  });
+
+  @override
+  State<SehirDetayScreenYemek> createState() => _SehirDetayScreenYemekState();
+}
+
+class _SehirDetayScreenYemekState extends State<SehirDetayScreenYemek> {
+  late Future<DocumentSnapshot> _mekanVerisi;
+
+  Future<DocumentSnapshot> veriyiGetir(DocumentReference ref) async {
+    final prefs = await SharedPreferences.getInstance();
+    final String zamanKey = 'son_guncelleme_mekanlar_${ref.id}';
+    final int? sonGuncelleme = prefs.getInt(zamanKey);
+    final int suAn = DateTime.now().millisecondsSinceEpoch;
+    
+    // --- BURAYA DİKKAT ---
+    // 1 SAAT = 1000 ms * 60 sn * 60 dk
+    const int limit = 1000 * 60 * 60; 
+
+    // --- DEDEKTİF BAŞLIYOR ---
+    if (sonGuncelleme != null) {
+      final fark = suAn - sonGuncelleme;
+      final gecenDakika = fark / 1000 / 60; // Dakikaya çevir
+      final limitDakika = limit / 1000 / 60;
+      
+      print("--------------------------------------------------");
+      print("🕵️ DEDEKTİF RAPORU:");
+      print("🕒 Ayarlanan Limit: ${limitDakika.toStringAsFixed(1)} Dakika (1 Saat)");
+      print("⏱️ Geçen Süre: ${gecenDakika.toStringAsFixed(1)} Dakika");
+      
+      if (fark > limit) {
+        print("❌ SONUÇ: Süre DOLMUŞ. (Mecburen okuma yapılacak)");
+      } else {
+        print("✅ SONUÇ: Süre DOLMAMIŞ. (${(limitDakika - gecenDakika).toStringAsFixed(1)} dk daha var)");
+        print("🛡️ İŞLEM: CACHE KULLANILIYOR (Okuma: 0)");
+      }
+      print("--------------------------------------------------");
+    } else {
+      print("🕵️ DEDEKTİF: İlk giriş veya kayıt yok. Okuma yapılıyor...");
+    }
+    // -------------------------
+
+    bool sunucuyaGit = (sonGuncelleme == null) || (suAn - sonGuncelleme > limit);
+
+    if (sunucuyaGit) {
+      try {
+        var snap = await ref.get(const GetOptions(source: Source.server));
+        await prefs.setInt(zamanKey, suAn);
+        print("🚀 SUNUCUDAN ÇEKİLDİ (Faturaya +1 yansıdı)");
+        return snap;
+      } catch (e) {
+        print("⚠️ HATA: Sunucu yok, Cache'e dönüldü.");
+        return await ref.get(const GetOptions(source: Source.cache));
+      }
+    }
+    return await ref.get(const GetOptions(source: Source.cache));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // SENİN MEKANLAR KOLEKSİYONUN BURASI
+    final ref = FirebaseFirestore.instance
+        .collection('sehirleryemek') 
+        .doc(widget.ulkeAdi);
+
+    _mekanVerisi = veriyiGetir(ref);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final docRef = FirebaseFirestore.instance
-        .collection('yemeksehirler')
-        .doc(
-          sehirAdi,
-        ); //bu satır firestoredaki sehirler koleksiyonundan sehirAdi Id'li belgeye ulaşmayı sağlar
     return GestureDetector(
-
       onHorizontalDragEnd: (details) {
         if (details.primaryVelocity! > 300) {
           Navigator.of(context).pop();
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xFFfcb69f),
+        backgroundColor: const Color(0xFFfcb69f),
+      
         body: SafeArea(
-          child: GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! > 300) {
-                Navigator.of(context).pop();
+          child: FutureBuilder<DocumentSnapshot>(
+            future: _mekanVerisi,
+            builder: (context, snapshot) {
+              
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator(color: Colors.white));
               }
+      
+              if (snapshot.hasError) {
+                return Center(child: Text("Hata: ${snapshot.error}"));
+              }
+      
+              if (!snapshot.hasData || !snapshot.data!.exists) {
+                return const Center(child: Text("Veri bulunamadı (Ülke Yok)."));
+              }
+      
+              // --- VERİ AYIKLAMA ---
+              final ulkeVerisi = snapshot.data!.data() as Map<String, dynamic>?;
+              
+              // Ülkenin içinden Şehri buluyoruz
+              final sehirDetaylari = ulkeVerisi?[widget.sehirAdi];
+      
+              if (sehirDetaylari == null) {
+                return const Center(child: Text("Bu şehre ait veri yok.", style: TextStyle(color: Colors.white)));
+              }
+              
+              // Şehrin içinden 'mekanlar' listesini alıyoruz
+              final mekanlarListesi = sehirDetaylari['mekanlar'];
+      
+              if (mekanlarListesi == null || (mekanlarListesi is List && mekanlarListesi.isEmpty)) {
+                 return const Center(child: Text("Bu şehirde henüz mekan ekli değil.", style: TextStyle(color: Colors.white)));
+              }
+      
+              final List<dynamic> liste = mekanlarListesi as List<dynamic>;
+      
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    // MEKANLARI LİSTELİYORUZ
+                    ...liste.map((item) {
+                      final mekanMap = item as Map<String, dynamic>;
+                      return MekanContainerYemek(mekan: mekanMap);
+                    }),
+                    const SizedBox(height: 32),
+                  ],
+                ),
+              );
             },
-            child: FutureBuilder<DocumentSnapshot>(
-              future: docRef.get(), //firestoredan belgeyi alır
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  //Future henüz sonuçlanmadıysa
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  ); //yükleniyor animasyonu gösterilir
-                }
-
-                if (!snapshot.hasData || snapshot.data == null) {
-                  //Future tamamlandı ama sonuç yoksa Örneğin internet kesildiğinde veya Firestore yanlış referans verildiğinde olabilir.
-                  return const Center(
-                    child: Text("Veri bulunamadı."),
-                  ); //kullanıcıya hata mesajı gösterilir.
-                }
-
-                if (!snapshot.data!.exists) {
-                  //Firestore’da istenen doküman bulunamadıysa
-                  return const Center(
-                    child: Text("Bu şehir için doküman bulunamadı."),
-                  );
-                }
-
-                final data =
-                    snapshot.data!.data()
-                        as Map<
-                          String,
-                          dynamic
-                        >?; //Dokümandan gelen veriyi alır. Firestore dokümanları Map<String, dynamic> formatındadır.
-
-                if (data == null || data['mekanlar'] == null) {
-                  //Doküman var ama içinde mekanlar alanı yoksa, kullanıcıya mekan olmadığı mesajı gösterilir.
-                  return const Center(
-                    child: Text("Bu şehir için mekan bilgisi bulunamadı."),
-                  );
-                }
-
-                final mekanlar = List<Map<String, dynamic>>.from(
-                  //mekanlar alanı bir liste olduğu için, bu satır listeyi List<Map<String, dynamic>> formatına dönüştürür.
-                  data['mekanlar'], //Yani her mekan bir map olarak okunur.
-                );
-
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      ...mekanlar.map(
-                        //mekanlar listesindeki her elemanı map’layıp bir widget’a dönüştürüyor.
-                        (mekan) => MekanContainerYemek(
-                          mekan: mekan,
-                        ), //Her mekan için MekanContainerGezi widget’i oluşturuluyor.
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
-                );
-              },
-            ),
           ),
         ),
       ),

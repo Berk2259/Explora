@@ -4,7 +4,12 @@ import 'package:explora/Gezi/DetayScreenGezi/sehir_detay_screen_gezi.dart';
 //Her şehir için kullanılacak konteyner bileşeni firebase bağlantısından sonra burada bir değşiklik olmadı
 class SehirContainerGezi extends StatelessWidget {
   final String sehirAdi;
-  const SehirContainerGezi({required this.sehirAdi, super.key});
+  final String ulkeAdi;
+  const SehirContainerGezi({
+    required this.sehirAdi,
+    super.key,
+    required this.ulkeAdi,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,8 @@ class SehirContainerGezi extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => SehirDetayScreenGezi(sehirAdi: sehirAdi),
+              builder: (context) =>
+                  SehirDetayScreenGezi(sehirAdi: sehirAdi, ulkeAdi: ulkeAdi),
             ),
           );
         },
@@ -46,10 +52,12 @@ class SehirContainerGezi extends StatelessWidget {
                     Text(
                       sehirAdi,
                       style: const TextStyle(
-                          fontSize: 24, fontWeight: FontWeight.bold),
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Text(
-                      'Gezilecek yerlere ulaşmak için çift tıklayın.',
+                      'Gezilecek yerlere ulaşmak için tıklayın.',
                       style: TextStyle(fontSize: 12),
                     ),
                   ],

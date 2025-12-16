@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 //Her şehir için kullanılacak konteyner bileşeni
 class SehirContainerEglence extends StatelessWidget {
   final String sehirAdi;
-  const SehirContainerEglence({required this.sehirAdi, super.key});
+  final String ulkeAdi;
+  const SehirContainerEglence({
+    required this.sehirAdi,
+    super.key,
+    required this.ulkeAdi,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +17,13 @@ class SehirContainerEglence extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SehirDetayScreenEglence(sehirAdi: sehirAdi,)));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  SehirDetayScreenEglence(sehirAdi: sehirAdi, ulkeAdi: ulkeAdi),
+            ),
+          );
         },
         child: Container(
           width: double.infinity,
@@ -28,7 +39,10 @@ class SehirContainerEglence extends StatelessWidget {
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.transparent,
-                  child: Image.asset('assets/icons/cityscape.png',color: Color(0xFFff6b6b),),
+                  child: Image.asset(
+                    'assets/icons/cityscape.png',
+                    color: Color(0xFFff6b6b),
+                  ),
                 ),
                 SizedBox(width: 20),
                 Column(
@@ -37,9 +51,15 @@ class SehirContainerEglence extends StatelessWidget {
                   children: [
                     Text(
                       sehirAdi,
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    Text('Eğlence Yerlerini Görmek İçin Çift Tıklayın.',style: TextStyle(fontSize: 12),),
+                    Text(
+                      'Eğlence Yerlerini Görmek İçin Tıklayın.',
+                      style: TextStyle(fontSize: 12),
+                    ),
                   ],
                 ),
               ],

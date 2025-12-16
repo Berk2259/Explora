@@ -55,130 +55,162 @@ class _UygulamaHakkindaScreenState extends State<UygulamaHakkindaScreen> {
                     width: 1.1,
                   ),
                 ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          'Uygulamadaki Ana Sayfalar',
-                          style: TextStyle(
-                            color: Color(0xFF083460),
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                child: Center(
+                  child: Text(
+                    'Explora',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+
+            // 2. Düzeltme: Expanded içindeki Container'dan gereksiz yüksekliği kaldırdık.
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white.withOpacity(0.18),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 1.1,
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Text(
+                            'Uygulamadaki Ana Sayfalar',
+                            style: TextStyle(
+                              color: Color(0xFF083460),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          children: [
-                            hakkinda_alt_part(
-                              icon: Icons.account_balance,
-                              title: 'Tarihi Yerler',
-                              description:
-                                  'Bu kısımdan her ülkedeki tarihi yerleri görebilirsiniz',
-                            ),
-                            hakkinda_alt_part(
-                              icon: Icons.park,
-                              title: 'Doğal Yerler',
-                              description:
-                                  'Bu kısımdan her ülkedeki doğal yerleri görebilirsiniz',
-                            ),
-                            hakkinda_alt_part(
-                              icon: Icons.fastfood,
-                              title: 'Yemek Yerleri',
-                              description:
-                                  'Bu kısımdan her ülkedeki yemek yerleri görebilirsiniz',
-                            ),
-                            hakkinda_alt_part(
-                              icon: FontAwesomeIcons.bagShopping,
-                              title: 'Mağazalar',
-                              description:
-                                  'Bu kısımdan her ülkedeki mağazaları görebilirsiniz',
-                            ),
-                            hakkinda_alt_part(
-                              icon: Icons.celebration,
-                              title: 'Eğlence Yerleri',
-                              description:
-                                  'Bu kısımdan her ülkedeki eğlence yerleri görebilirsiniz',
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          'Uygulamada Neler Yapabilirsiniz',
-                          style: TextStyle(
-                            color: Color(0xFF083460),
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Column(
+                            children: [
+                              hakkinda_alt_part(
+                                icon: Icons.account_balance,
+                                title: 'Tarihi Yerler',
+                                description:
+                                    'Bu kısımdan her ülkedeki tarihi yerleri görebilirsiniz',
+                              ),
+                              SizedBox(height: 10),
+                              hakkinda_alt_part(
+                                icon: Icons.park,
+                                title: 'Doğal Yerler',
+                                description:
+                                    'Bu kısımdan her ülkedeki doğal yerleri görebilirsiniz',
+                              ),
+                              SizedBox(height: 10),
+                              hakkinda_alt_part(
+                                icon: Icons.fastfood,
+                                title: 'Yemek Yerleri',
+                                description:
+                                    'Bu kısımdan her ülkedeki yemek yerleri görebilirsiniz',
+                              ),
+                              SizedBox(height: 10),
+                              hakkinda_alt_part(
+                                icon: FontAwesomeIcons.bagShopping,
+                                title: 'Mağazalar',
+                                description:
+                                    'Bu kısımdan her ülkedeki mağazaları görebilirsiniz',
+                              ),
+                              SizedBox(height: 10),
+                              hakkinda_alt_part(
+                                icon: Icons.celebration,
+                                title: 'Eğlence Yerleri',
+                                description:
+                                    'Bu kısımdan her ülkedeki eğlence yerleri görebilirsiniz',
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Padding(
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Text(
+                            'Uygulamada Neler Yapabilirsiniz',
+                            style: TextStyle(
+                              color: Color(0xFF083460),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16.0,
+                            ),
+                            child: Text(
+                              'Uygulamada istediğiniz şehre ait istediğiniz türde mekanın konumunu görüntülüyebilirsiniz',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Text(
+                            'Uygulamadaki Kaynaklar',
+                            style: TextStyle(
+                              color: Color(0xFF083460),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16.0,
+                            ),
+                            child: Text(
+                              'Uygulamadaki görsel öğeler aşağıdaki kaynaklardan kullanılmıştır:',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
-                            'Uygulamada istediğiniz şehre ait istediğiniz türde mekanın konumunu görüntülüyebilirsiniz',
-                            textAlign: TextAlign.center,
+                            '• https://www.flaticon.com/',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          'Uygulamadaki Kaynaklar',
-                          style: TextStyle(
-                            color: Color(0xFF083460),
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Padding(
+                        Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
-                            'Uygulamadaki görsel öğeler aşağıdaki kaynaklardan kullanılmıştır:',
-                            textAlign: TextAlign.center,
+                            '• https://fontawesome.com/',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text(
-                          '• https://www.flaticon.com/',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text(
-                          '• https://fontawesome.com/',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 50),
-                    ],
+                        SizedBox(height: 20),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -217,20 +249,22 @@ class hakkinda_alt_part extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    shadows: [Shadow(offset: Offset(1.0,1.0))],
+                    shadows: [
+                      Shadow(
+                        offset: Offset(0, 0),
+                        blurRadius: 3,
+                        color: Colors.black,
+                      ),
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: Text(
-                    description,
-                    style: TextStyle(color: Colors.white, fontSize: 12),
-                    softWrap: true,
-                    overflow: TextOverflow.visible,
-                  ),
+                Text(
+                  description,
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  softWrap: true,
+                  overflow: TextOverflow.visible,
                 ),
               ],
             ),

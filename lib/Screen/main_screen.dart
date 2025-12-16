@@ -93,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.celebration),
-                label: 'Parti',
+                label: 'Eğlence',
               ),
             ],
             backgroundColor: Colors.transparent,

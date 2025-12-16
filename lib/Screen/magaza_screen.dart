@@ -18,15 +18,7 @@ class MagazaScreen extends StatelessWidget {
               topLeft: Radius.circular(25),
               topRight: Radius.circular(25),
             ),
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(0xFF2c3e50),
-                Color(0xFF34495e),
-                Color(0xFF7f8c8d),
-              ],
-            ),
+          color: Color(0xFF2c3e50),
           ),
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: 18, vertical: 22),

@@ -252,14 +252,14 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      _openWebsite('https://www.instagram.com');
+                      _openWebsite('https://www.instagram.com/explora_app_');
                     },
                     icon: Icon(FontAwesomeIcons.squareInstagram, size: 40),
                   ),
                   SizedBox(width: 10),
                   IconButton(
                     onPressed: () {
-                      _openWebsite('https://www.facebook.com');
+                      _openWebsite('https://www.facebook.com/profile.php?id=61585383622736');
                     },
                     icon: Icon(FontAwesomeIcons.facebook, size: 35),
                   ),

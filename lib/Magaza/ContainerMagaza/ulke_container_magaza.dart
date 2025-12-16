@@ -113,7 +113,7 @@ class UlkeContainerMagaza extends StatelessWidget {
                           SizedBox(width: 4),
                           Flexible(
                             child: Text(
-                              'Mağazaları görüntülemek için çift tıklayın',
+                              'Şehirleri görmek için tıklayın',
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Colors.black,
