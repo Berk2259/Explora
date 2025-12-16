@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:explora/Screen/gizlilik_screen.dart';
 import 'package:explora/Screen/screen.dart';
+import 'package:explora/Widget/pop_up.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -216,6 +217,33 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: ekranRenkleri[widget.seciliEkran.runtimeType],
+                        ),
+                        child: ListTile(
+                          leading: Icon(Icons.exit_to_app, color: Colors.white),
+                          title: Text(
+                            'Çıkış Yap',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          onTap: () {
+                            PopUp.show(
+                              context: context,
+                              title: 'Uyarı',
+                              message:
+                                  'Çıkış yapmak istediğinize emin misiniz?',
+                            );
+                          },
+                        ),
+                      ),
+                    ),
                     /* Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -259,7 +287,9 @@ class _OrtakAppBarState extends State<OrtakAppBar> {
                   SizedBox(width: 10),
                   IconButton(
                     onPressed: () {
-                      _openWebsite('https://www.facebook.com/profile.php?id=61585383622736');
+                      _openWebsite(
+                        'https://www.facebook.com/profile.php?id=61585383622736',
+                      );
                     },
                     icon: Icon(FontAwesomeIcons.facebook, size: 35),
                   ),

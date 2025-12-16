@@ -7,3 +7,5 @@ export 'eglence_screen.dart';
 export 'uygulama_hakkinda_screen.dart';
 export 'gizlilik_screen.dart';
 export 'splash_screen.dart';
+export 'login_screen.dart';
+export 'register_screen.dart';
