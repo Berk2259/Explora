@@ -113,7 +113,7 @@ class UlkeContainerDoga extends StatelessWidget {
                           SizedBox(width: 4),
                           Flexible(
                             child: Text(
-                              'Doğal güzellikleri keşfetmek için çift tıklayın',
+                              'Şehirleri görmek için tıklayın',
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Color(0xFF388e3c),

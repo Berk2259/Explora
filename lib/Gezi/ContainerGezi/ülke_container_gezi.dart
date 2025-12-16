@@ -104,7 +104,7 @@ class UlkeContainerGezi extends StatelessWidget {
                             SizedBox(width: 4),
                             Flexible(
                             child: Text(
-                              'Şehirlere Ulaşmak İçin Çift Tıklayın',
+                              'Şehirlere görmek İçin Tıklayın',
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Color(0xFF667eea),

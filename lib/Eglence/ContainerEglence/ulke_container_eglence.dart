@@ -121,7 +121,7 @@ class UlkeContainerEglence extends StatelessWidget {
                           SizedBox(width: 4),
                           Flexible(
                             child: Text(
-                              'Eğlence mekanları için çift tıklayın',
+                              'Şehirleri görmek için tıklayın',
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Color(0xFF8b0000).withOpacity(0.7),

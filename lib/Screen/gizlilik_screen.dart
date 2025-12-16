@@ -18,13 +18,6 @@ class _GizlilikScreenState extends State<GizlilikScreen> {
     EglenceScreen: Color(0xFFff6b6b),
   };
 
-  final items = [
-    "Ad, soyad",
-    "E-posta adresi",
-    "Telefon numarası",
-    "Konum verisi",
-  ];
-
   @override
   Widget build(BuildContext context) {
     final screenColor = ekranRenkleri[widget.seciliEkran.runtimeType];
@@ -46,6 +39,7 @@ class _GizlilikScreenState extends State<GizlilikScreen> {
     return Scaffold(
       backgroundColor: screenColor,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'Gizlilik Politikası',
           style: TextStyle(color: Colors.white),
@@ -79,57 +73,134 @@ class _GizlilikScreenState extends State<GizlilikScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0), // İçerik Padding'i
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Üst Kısım
-                    Column(
-                      children: [
-                        Text(
-                          'Uygulamada tutulan verileriniz:',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 10),
-                        // Buraya tutulan verilerle ilgili bilgi gelecek
-                      ],
+                    Text(
+                      'Bu Gizlilik Politikası, Explora tarafından toplanan, kullanılan ve korunan kişisel verilerle ilgili esasları açıklamaktadır. Uygulamayı kullanarak bu Gizlilik Politikası’nı kabul etmiş olursunuz.',
                     ),
-
-                    // Alt Kısım
+                    SizedBox(height: 15),
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 30),
-                        Text(
-                          'Uygulamada tutulmayan bilgiler:',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 10),
-
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: items.map((item) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 4.0,
+                          children: [
+                            Text(
+                              '1. Toplanan Bilgiler',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
-                              child: Text(
-                                "• $item",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            );
-                          }).toList(),
+                            ),
+                            Text(
+                              'Uygulama hiçbir kişisel veri toplamamaktadır.',
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              ' • Kullanıcıdan ad, e-posta, konum, cihaz kimliği veya benzeri herhangi bir kişisel bilgi talep edilmez.',
+                            ),
+                            Text(
+                              ' • Uygulama içi analiz, reklam, izleme veya üçüncü taraf veri toplama araçları kullanılmamaktadır.',
+                            ),
+                          ],
                         ),
+                        SizedBox(height: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '2. İzinler',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Explora, kullanıcıdan özel bir sistem izni talep etmez.',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15),
+                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '3. Veri Paylaşımı',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Uygulama herhangi bir veri toplamadığı için üçüncü kişilerle veri paylaşımı söz konusu değildir.',
+                            ),
+                          ],
+                        ),
+                         SizedBox(height: 15),
+                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '4. Veri Güvenliği',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Herhangi bir kişisel veri işlenmediğinden, veri güvenliği riski bulunmamaktadır.',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '5. Çocukların Gizliliği',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Explora, 13 yaşın altındaki çocuklardan bilerek kişisel veri toplamaz. Zaten uygulama genel olarak veri toplama işlevi içermemektedir.',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '6. Gizlilik Politikası Değişiklikleri',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Bu Gizlilik Politikası gerekli görüldüğünde güncellenebilir. Güncellemeler uygulama üzerinden veya uygulama mağazası sayfasında yayımlandığı anda yürürlüğe girer.',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '7. İletişim',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text('Gizlilik Politikası ile ilgili sorular için bizimle iletişim kısmından iletişime geçebilirsiniz')
+                            
+                          ],
+                        ),
+                        SizedBox(height: 30,),
+                        Text('Son Güncelleme Tarihi: 16.12.2025',style: TextStyle(fontWeight: FontWeight.bold),)
                       ],
                     ),
                   ],

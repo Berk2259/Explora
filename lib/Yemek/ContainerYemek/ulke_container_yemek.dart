@@ -113,7 +113,7 @@ class UlkeContainerYemek extends StatelessWidget {
                           SizedBox(width: 4),
                           Flexible(
                             child: Text(
-                               'Yemek Yerlerine Ulaşmak için çift tıkalayın',
+                               'Şehirleri görmek için tıkalayın',
                               style: TextStyle(
                                 fontSize: 11,
                                 color: Color(0xFFfcb69f),
